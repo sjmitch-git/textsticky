@@ -1,0 +1,25 @@
+@import "tailwindcss/colors";
+
+:root {
+  --color-slate: theme("colors.slate.500");
+  --color-gray: theme("colors.gray.500");
+  --color-zinc: theme("colors.zinc.500");
+  --color-stone: theme("colors.stone.500");
+  --color-red: theme("colors.red.500");
+  --color-orange: theme("colors.orange.500");
+  --color-amber: theme("colors.amber.500");
+  --color-yellow: theme("colors.yellow.500");
+  --color-lime: theme("colors.lime.500");
+  --color-green: theme("colors.green.500");
+  --color-emerald: theme("colors.emerald.500");
+  --color-teal: theme("colors.teal.500");
+  --color-cyan: theme("colors.cyan.500");
+  --color-sky: theme("colors.sky.500");
+  --color-blue: theme("colors.blue.500");
+  --color-indigo: theme("colors.indigo.500");
+  --color-violet: theme("colors.violet.500");
+  --color-purple: theme("colors.purple.500");
+  --color-fuchsia: theme("colors.fuchsia.500");
+  --color-pink: theme("colors.pink.500");
+  --color-rose: theme("colors.rose.500");
+}

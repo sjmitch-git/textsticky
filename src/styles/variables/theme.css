@@ -1,0 +1,26 @@
+@import "./colors.css";
+@import "./grays.css";
+
+:root {
+  --color-primary: theme("colors.indigo.500");
+  --color-primary-light: theme("colors.indigo.200");
+  --color-primary-dark: theme("colors.indigo.900");
+  --color-secondary: theme("colors.violet.500");
+  --color-secondary-light: theme("colors.violet.200");
+  --color-secondary-dark: theme("colors.violet.900");
+  --color-accent: theme("colors.amber.500");
+  --color-accent-light: theme("colors.amber.300");
+  --color-accent-dark: theme("colors.amber.700");
+  --color-neutral: var(--color-neutral-gray);
+  --color-error: var(--color-red);
+  --color-warning: var(--color-amber);
+  --color-info: var(--color-cyan);
+  --color-success: var(--color-emerald);
+}
+
+:root {
+  --background-light: var(--color-neutral-gray-lightest);
+  --background-dark: var(--color-neutral-gray-darkest);
+  --foreground-light: var(--color-neutral-gray-lightest);
+  --foreground-dark: var(--color-neutral-gray-darkest);
+}

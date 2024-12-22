@@ -1,0 +1,31 @@
+.text-stroke {
+  -webkit-text-stroke: 0.025em;
+}
+
+.text-stroke-0 {
+  -webkit-text-stroke: 0;
+}
+
+.text-stroke-lg {
+  -webkit-text-stroke: 0.05em;
+}
+
+.text-stroke-xl {
+  -webkit-text-stroke: 0.075em;
+}
+
+.text-stroke-primary {
+  -webkit-text-stroke-color: var(--color-primary);
+}
+
+.text-stroke-secondary {
+  -webkit-text-stroke-color: var(--color-secondary);
+}
+
+.text-stroke-accent {
+  -webkit-text-stroke-color: var(--color-accent);
+}
+
+.text-stroke-neutral {
+  -webkit-text-stroke-color: var(--color-neutral);
+}
