@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 
-import { InputFormProps } from "@/lib/types";
+import { InputFormProps, presetDimensions } from "@/lib/types";
 
 export default function InputForm({
   text,
@@ -11,59 +11,98 @@ export default function InputForm({
   setBackgroundColor,
   dimensions,
   setDimensions,
+  fontSize,
+  setFontSize,
+  fontFamily,
+  setFontFamily,
 }: InputFormProps) {
+  const handleTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setText(e.target.value);
+  };
+
+  const handleForegroundColorChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setForegroundColor(e.target.value);
+  };
+
+  const handleBackgroundColorChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setBackgroundColor(e.target.value);
+  };
+
+  const handleWidthChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setDimensions({ ...dimensions, width: Number(e.target.value) });
+  };
+
+  const handleHeightChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setDimensions({ ...dimensions, height: Number(e.target.value) });
+  };
+
+  const handlePresetChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const selectedPreset = presetDimensions[e.target.value as keyof typeof presetDimensions];
+    setDimensions(selectedPreset);
+  };
+
+  const handleFontSizeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFontSize(Number(e.target.value));
+  };
+
+  const handleFontFamilyChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setFontFamily(e.target.value);
+  };
+
   return (
-    <div className="flex flex-col gap-4 p-4 bg-white shadow-md rounded w-full max-w-lg">
-      <textarea
-        value={text}
-        onChange={(e) => setText(e.target.value)}
-        className="border p-2 rounded w-full resize-none"
-        placeholder="Enter your text here..."
-      />
-      <div className="flex gap-4">
-        <div>
-          <label className="block text-sm font-bold">Foreground</label>
-          <input
-            type="color"
-            value={foregroundColor}
-            onChange={(e) => setForegroundColor(e.target.value)}
-            className="w-full"
-          />
-        </div>
-        <div>
-          <label className="block text-sm font-bold">Background</label>
-          <input
-            type="color"
-            value={backgroundColor}
-            onChange={(e) => setBackgroundColor(e.target.value)}
-            className="w-full"
-          />
-        </div>
+    <form>
+      <div>
+        <label>Text:</label>
+        <textarea value={text} onChange={handleTextChange} />
       </div>
-      <div className="flex gap-4">
-        <div>
-          <label className="block text-sm font-bold">Width</label>
-          <input
-            type="number"
-            value={dimensions.width}
-            onChange={(e) => setDimensions({ ...dimensions, width: parseInt(e.target.value) || 0 })}
-            className="border p-2 rounded w-full"
-            min="100"
-          />
-        </div>
-        <div>
-          <label className="block text-sm font-bold">Height</label>
-          <input
-            type="number"
-            value={dimensions.height}
-            onChange={(e) =>
-              setDimensions({ ...dimensions, height: parseInt(e.target.value) || 0 })
-            }
-            className="border p-2 rounded w-full"
-            min="100"
-          />
-        </div>
+      <div>
+        <label>Foreground Color:</label>
+        <input type="color" value={foregroundColor} onChange={handleForegroundColorChange} />
       </div>
-    </div>
+      <div>
+        <label>Background Color:</label>
+        <input type="color" value={backgroundColor} onChange={handleBackgroundColorChange} />
+      </div>
+      <div>
+        <label>Width:</label>
+        <input type="number" value={dimensions.width} onChange={handleWidthChange} />
+      </div>
+      <div>
+        <label>Height:</label>
+        <input type="number" value={dimensions.height} onChange={handleHeightChange} />
+      </div>
+      <div>
+        <label>Preset Dimensions:</label>
+        <select onChange={handlePresetChange}>
+          <option value="">Select a preset</option>
+          <option value="twitter">Twitter</option>
+          <option value="facebook">Facebook</option>
+          <option value="instagram">Instagram</option>
+          <option value="linkedin">LinkedIn</option>
+        </select>
+      </div>
+      <div>
+        <label>Font Size:</label>
+        <input type="range" min="18" max="200" value={fontSize} onChange={handleFontSizeChange} />
+        <span>{fontSize}px</span>
+      </div>
+      <div>
+        <label>Font Family:</label>
+        <select value={fontFamily} onChange={handleFontFamilyChange}>
+          <option value="Arial">Arial</option>
+          <option value="Helvetica">Helvetica</option>
+          <option value="Times New Roman">Times New Roman</option>
+          <option value="Courier New">Courier New</option>
+          <option value="Verdana">Verdana</option>
+          <option value="Georgia">Georgia</option>
+          <option value="Palatino">Palatino</option>
+          <option value="Garamond">Garamond</option>
+          <option value="Comic Sans MS">Comic Sans MS</option>
+          <option value="Trebuchet MS">Trebuchet MS</option>
+          <option value="Arial Black">Arial Black</option>
+          <option value="Impact">Impact</option>
+        </select>
+      </div>
+    </form>
   );
 }

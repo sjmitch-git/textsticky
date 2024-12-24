@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@smitch/fluid": "^2.5.17",
     "color": "^4.2.3",
     "next": "15.1.2",
     "react": "^19.0.0",
