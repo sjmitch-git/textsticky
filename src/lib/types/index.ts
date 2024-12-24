@@ -25,7 +25,6 @@ export interface PreviewCanvasProps {
 
 export interface CreateButtonProps {
   canvasRef: React.RefObject<HTMLCanvasElement | null>;
-  setBase64Image: (value: string) => void;
 }
 
 export const presetDimensions = {

@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import { PreviewCanvasProps } from "@/lib/types";
 
 export default function PreviewCanvas({
@@ -39,7 +39,7 @@ export default function PreviewCanvas({
         });
       }
     }
-  }, [text, foregroundColor, backgroundColor, dimensions, fontSize, fontFamily]);
+  }, [canvasRef, text, foregroundColor, backgroundColor, dimensions, fontSize, fontFamily]);
 
   return (
     <div

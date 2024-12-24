@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import { CreateButtonProps } from "@/lib/types";
 
-export default function CreateButton({ canvasRef, setBase64Image }: CreateButtonProps) {
+export default function CreateButton({ canvasRef }: CreateButtonProps) {
   const router = useRouter();
 
   const handleCreate = () => {
@@ -11,7 +11,7 @@ export default function CreateButton({ canvasRef, setBase64Image }: CreateButton
     if (canvas) {
       // Convert canvas to base64
       const base64Image = canvas.toDataURL("image/png");
-      setBase64Image(base64Image);
+      // setBase64Image(base64Image);
 
       if (base64Image.length > 2000) {
         alert(base64Image.length);

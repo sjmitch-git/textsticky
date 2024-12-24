@@ -13,7 +13,6 @@ export default function Create() {
   const [dimensions, setDimensions] = useState({ width: 200, height: 200 });
   const [fontSize, setFontSize] = useState(16);
   const [fontFamily, setFontFamily] = useState("Arial");
-  const [base64Image, setBase64Image] = useState("");
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   const inputFormProps: InputFormProps = {
@@ -43,7 +42,6 @@ export default function Create() {
 
   const createButtonProps: CreateButtonProps = {
     canvasRef,
-    setBase64Image,
   };
 
   return (
