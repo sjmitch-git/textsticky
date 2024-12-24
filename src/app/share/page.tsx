@@ -9,7 +9,7 @@ import { Suspense, useEffect, useState } from "react";
   description: "Share your custom image",
 }; */
 
-export function ShareContent() {
+const ShareContent = () => {
   const searchParams = useSearchParams();
   const [image, setImage] = useState<string | null>(null);
 
@@ -32,7 +32,7 @@ export function ShareContent() {
       )}
     </div>
   );
-}
+};
 
 export default function Share() {
   return (

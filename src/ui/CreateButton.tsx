@@ -13,10 +13,10 @@ export default function CreateButton({ canvasRef }: CreateButtonProps) {
       const base64Image = canvas.toDataURL("image/png");
       // setBase64Image(base64Image);
 
-      if (base64Image.length > 2000) {
+      /*  if (base64Image.length > 2000) {
         alert(base64Image.length);
         return;
-      }
+      } */
 
       // Navigate to /share with base64 as param
       router.push(`/share?image=${encodeURIComponent(base64Image)}`);
