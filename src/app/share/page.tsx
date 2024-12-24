@@ -1,7 +1,7 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 //import type { Metadata } from "next";
 
 /* export const metadata: Metadata = {
@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
   description: "Share your custom image",
 }; */
 
-export default function Share() {
+export function ShareContent() {
   const searchParams = useSearchParams();
   const [image, setImage] = useState<string | null>(null);
 
@@ -31,5 +31,13 @@ export default function Share() {
         <p>No image to display</p>
       )}
     </div>
+  );
+}
+
+export default function Share() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <ShareContent />
+    </Suspense>
   );
 }
