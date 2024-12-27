@@ -1,15 +1,14 @@
-import { useEffect } from "react";
-import { PreviewCanvasProps } from "@/lib/types";
+"use client";
 
-export default function PreviewCanvas({
-  text,
-  foregroundColor,
-  backgroundColor,
-  dimensions,
-  fontSize,
-  fontFamily,
-  canvasRef,
-}: PreviewCanvasProps) {
+import React, { useEffect, useRef } from "react";
+import { useFormContext } from "@/lib/contexts/FormContext";
+import CreateButton from "@/ui/CreateButton";
+
+export default function PreviewCanvas() {
+  const { text, foregroundColor, backgroundColor, dimensions, fontSize, fontFamily } =
+    useFormContext();
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+
   useEffect(() => {
     const canvas = canvasRef?.current;
     if (canvas) {
@@ -42,18 +41,18 @@ export default function PreviewCanvas({
   }, [canvasRef, text, foregroundColor, backgroundColor, dimensions, fontSize, fontFamily]);
 
   return (
-    <div
-      className="preview-canvas w-full max-w-full relative overflow-hidden"
-      style={{
-        paddingTop: `calc(100% * (${dimensions.height} / ${dimensions.width}))`,
-      }}
-    >
-      <canvas
-        className="absolute top-0 left-0 w-full h-full"
-        ref={canvasRef}
-        width={dimensions.width}
-        height={dimensions.height}
-      />
+    <div>
+      <div
+        className={`relative overflow-hidden w-full mx-auto aspect-[${dimensions.width}/${dimensions.height}]`}
+      >
+        <canvas
+          className="w-full h-full"
+          ref={canvasRef}
+          width={dimensions.width}
+          height={dimensions.height}
+        />
+      </div>
+      <CreateButton canvasRef={canvasRef} />
     </div>
   );
 }

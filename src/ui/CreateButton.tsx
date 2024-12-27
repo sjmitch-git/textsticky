@@ -1,25 +1,34 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import { useRef } from "react";
 import { CreateButtonProps } from "@/lib/types";
 
 export default function CreateButton({ canvasRef }: CreateButtonProps) {
   const router = useRouter();
+  const hasUploaded = useRef(false);
 
-  const handleCreate = () => {
+  const handleCreate = async () => {
+    if (hasUploaded.current) return;
+
     const canvas = canvasRef.current;
     if (canvas) {
-      // Convert canvas to base64
-      const base64Image = canvas.toDataURL("image/png");
-      // setBase64Image(base64Image);
+      const base64Image = canvas.toDataURL("image/avif", 0.8);
 
-      /*  if (base64Image.length > 2000) {
-        alert(base64Image.length);
-        return;
-      } */
+      const response = await fetch("/upload", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ base64Image }),
+      });
 
-      // Navigate to /share with base64 as param
-      router.push(`/share?image=${encodeURIComponent(base64Image)}`);
+      const data = await response.json();
+      const blobId = data.id;
+
+      hasUploaded.current = true;
+
+      router.push(`/share?id=${encodeURIComponent(blobId)}`);
     }
   };
 

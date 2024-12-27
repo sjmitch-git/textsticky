@@ -1,21 +1,25 @@
+"use client";
+
 import React from "react";
+import { useFormContext } from "@/lib/contexts/FormContext";
+import { presetDimensions } from "@/lib/types";
 
-import { InputFormProps, presetDimensions } from "@/lib/types";
+export default function InputForm() {
+  const {
+    text,
+    setText,
+    foregroundColor,
+    setForegroundColor,
+    backgroundColor,
+    setBackgroundColor,
+    dimensions,
+    setDimensions,
+    fontSize,
+    setFontSize,
+    fontFamily,
+    setFontFamily,
+  } = useFormContext();
 
-export default function InputForm({
-  text,
-  setText,
-  foregroundColor,
-  setForegroundColor,
-  backgroundColor,
-  setBackgroundColor,
-  dimensions,
-  setDimensions,
-  fontSize,
-  setFontSize,
-  fontFamily,
-  setFontFamily,
-}: InputFormProps) {
   const handleTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setText(e.target.value);
   };
@@ -38,7 +42,9 @@ export default function InputForm({
 
   const handlePresetChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedPreset = presetDimensions[e.target.value as keyof typeof presetDimensions];
-    setDimensions(selectedPreset);
+    if (selectedPreset) {
+      setDimensions(selectedPreset);
+    }
   };
 
   const handleFontSizeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -75,10 +81,11 @@ export default function InputForm({
         <label>Preset Dimensions:</label>
         <select onChange={handlePresetChange}>
           <option value="">Select a preset</option>
-          <option value="twitter">Twitter</option>
-          <option value="facebook">Facebook</option>
-          <option value="instagram">Instagram</option>
-          <option value="linkedin">LinkedIn</option>
+          {Object.keys(presetDimensions).map((key) => (
+            <option key={key} value={key}>
+              {key}
+            </option>
+          ))}
         </select>
       </div>
       <div>

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { FormProvider } from "@/lib/contexts/FormContext";
 import "@/styles/index.css";
 import Header from "@/ui/Header";
 import Footer from "@/ui/Footer";
@@ -40,7 +41,9 @@ export default function RootLayout({
     <html lang="en">
       <body className="flex flex-col min-h-screen">
         <Header />
-        <main className="flex-grow container bg-neutral-200 mx-auto">{children}</main>
+        <FormProvider>
+          <main className="flex-grow container bg-neutral-200 mx-auto">{children}</main>
+        </FormProvider>
         <Footer />
       </body>
     </html>
