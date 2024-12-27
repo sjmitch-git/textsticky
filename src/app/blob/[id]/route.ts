@@ -30,6 +30,7 @@ export async function GET(req: NextRequest) {
 
     return NextResponse.json({ base64Image });
   } catch (error) {
-    return NextResponse.json({ error: "Failed to fetch blob data ROUTE" }, { status: 500 });
+    console.error(error);
+    return NextResponse.json({ error: "Failed to fetch blob data" }, { status: 500 });
   }
 }

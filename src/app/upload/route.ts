@@ -23,6 +23,7 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ id, url });
   } catch (error) {
+    console.error(error);
     return NextResponse.json({ error: "Failed to upload data" }, { status: 500 });
   }
 }
