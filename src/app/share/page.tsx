@@ -25,8 +25,8 @@ const ShareContent = () => {
           } else {
             throw new Error("Failed to fetch blob data.");
           }
-        } catch (err: any) {
-          setError(err.message || "Unknown error occurred.");
+        } catch (error) {
+          setError("Unknown error occurred.");
         } finally {
           setLoading(false);
           hasFetched.current = false;

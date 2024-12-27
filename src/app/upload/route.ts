@@ -11,7 +11,6 @@ export async function POST(req: NextRequest) {
     }
 
     const id = uuidv4();
-    // const folderPath = "textsticky/";
     const folderPath = `textsticky/${id}/`;
 
     const buffer = Buffer.from(base64Image.split(",")[1], "base64");
@@ -22,11 +21,8 @@ export async function POST(req: NextRequest) {
       addRandomSuffix: false,
     });
 
-    console.log("Uploaded URL:", url);
-
     return NextResponse.json({ id, url });
   } catch (error) {
-    console.error("Error uploading data:", error);
     return NextResponse.json({ error: "Failed to upload data" }, { status: 500 });
   }
 }
