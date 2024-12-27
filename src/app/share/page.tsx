@@ -1,7 +1,7 @@
 "use client";
 
 import { useSearchParams, useRouter } from "next/navigation";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, Suspense } from "react";
 
 const ShareContent = () => {
   const searchParams = useSearchParams();
@@ -55,7 +55,9 @@ export default function Share() {
   return (
     <div>
       <h1>Share</h1>
-      <ShareContent />
+      <Suspense>
+        <ShareContent />
+      </Suspense>
       <button
         onClick={() => router.push("/create")}
         style={{
