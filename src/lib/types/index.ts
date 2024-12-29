@@ -31,7 +31,7 @@ export interface FormContextProps extends FormState {
   setAspect: SetState<string>;
 }
 
-export interface InputFormProps extends Partial<FormContextProps> {}
+// export interface InputFormProps extends Partial<FormContextProps> {}
 
 export interface PreviewCanvasProps extends Omit<FormState, "aspect"> {
   canvasRef: React.RefObject<HTMLCanvasElement | null>;
