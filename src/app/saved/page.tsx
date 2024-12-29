@@ -32,7 +32,7 @@ export default function Saved() {
   };
 
   const handleClick = (blobId: string) => {
-    const clickedImage = savedImages.find((img: any) => img.blobId === blobId);
+    const clickedImage = savedImages.find((img: SavedImageProps) => img.blobId === blobId);
     if (clickedImage) {
       const { state } = clickedImage;
       setText(state.text);
