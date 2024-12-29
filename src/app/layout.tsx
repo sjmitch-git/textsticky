@@ -42,7 +42,7 @@ export default function RootLayout({
       <body className="flex flex-col min-h-screen">
         <Header />
         <FormProvider>
-          <main className="flex-grow container bg-neutral-200 mx-auto">{children}</main>
+          <main className="flex-grow container mx-auto max-w-4xl p-4 lg:px-0">{children}</main>
         </FormProvider>
         <Footer />
       </body>

@@ -1,34 +1,17 @@
-// FormContext.tsx
 "use client";
 
 import React, { createContext, useContext, useState } from "react";
-// import { presetDimensions } from "@/lib/types";
 
-interface FormState {
-  text: string;
-  foregroundColor: string;
-  backgroundColor: string;
-  dimensions: { width: number; height: number };
-  fontSize: number;
-  fontFamily: string;
-}
-
-interface FormContextProps extends FormState {
-  setText: React.Dispatch<React.SetStateAction<string>>;
-  setForegroundColor: React.Dispatch<React.SetStateAction<string>>;
-  setBackgroundColor: React.Dispatch<React.SetStateAction<string>>;
-  setDimensions: React.Dispatch<React.SetStateAction<{ width: number; height: number }>>;
-  setFontSize: React.Dispatch<React.SetStateAction<number>>;
-  setFontFamily: React.Dispatch<React.SetStateAction<string>>;
-}
+import { FormState, FormContextProps } from "@/lib/types";
 
 const defaultState: FormState = {
-  text: "Hello, world! 🌍✨",
-  foregroundColor: "#000000",
-  backgroundColor: "#ffffff",
-  dimensions: { width: 200, height: 200 },
-  fontSize: 16,
+  text: "Hello, world!",
+  foregroundColor: "#374151",
+  backgroundColor: "#d1d5db",
+  dimensions: { width: 1024, height: 512 },
+  fontSize: 18,
   fontFamily: "Arial",
+  aspect: "landscape",
 };
 
 const FormContext = createContext<FormContextProps | undefined>(undefined);
@@ -40,6 +23,7 @@ export const FormProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [dimensions, setDimensions] = useState(defaultState.dimensions);
   const [fontSize, setFontSize] = useState(defaultState.fontSize);
   const [fontFamily, setFontFamily] = useState(defaultState.fontFamily);
+  const [aspect, setAspect] = useState(defaultState.aspect);
 
   return (
     <FormContext.Provider
@@ -56,6 +40,8 @@ export const FormProvider: React.FC<{ children: React.ReactNode }> = ({ children
         setFontSize,
         fontFamily,
         setFontFamily,
+        aspect,
+        setAspect,
       }}
     >
       {children}

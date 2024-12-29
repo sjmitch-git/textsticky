@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef } from "react";
 import { useFormContext } from "@/lib/contexts/FormContext";
-import CreateButton from "@/ui/CreateButton";
+import UploadButton from "@/ui/UploadButton";
 
 export default function PreviewCanvas() {
   const { text, foregroundColor, backgroundColor, dimensions, fontSize, fontFamily } =
@@ -14,22 +14,18 @@ export default function PreviewCanvas() {
     if (canvas) {
       const ctx = canvas.getContext("2d");
       if (ctx) {
-        // Clear the canvas
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        // Set the background color
         ctx.fillStyle = backgroundColor;
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-        // Set the text properties
         ctx.font = `${fontSize}px ${fontFamily}`;
         ctx.fillStyle = foregroundColor;
         ctx.textAlign = "center";
         ctx.textBaseline = "middle";
 
-        // Split the text into lines and draw each line
         const lines = text.split("\n");
-        const lineHeight = fontSize * 1.2; // Adjust line height as needed
+        const lineHeight = fontSize * 1.2;
         const x = canvas.width / 2;
         const y = canvas.height / 2 - ((lines.length - 1) * lineHeight) / 2;
 
@@ -52,7 +48,7 @@ export default function PreviewCanvas() {
           height={dimensions.height}
         />
       </div>
-      <CreateButton canvasRef={canvasRef} />
+      <UploadButton canvasRef={canvasRef} />
     </div>
   );
 }

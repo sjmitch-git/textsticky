@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { put } from "@vercel/blob";
-import { v4 as uuidv4 } from "uuid";
+
+const MAX_IMAGE_SIZE = 50 * 1024 * 1024;
 
 export async function POST(req: NextRequest) {
   try {
@@ -10,20 +11,22 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "base64Image is required" }, { status: 400 });
     }
 
-    const id = uuidv4();
-    const folderPath = `textsticky/${id}/`;
+    const folderPath = `uploads/`;
 
     const buffer = Buffer.from(base64Image.split(",")[1], "base64");
 
-    const { url } = await put(`${folderPath}data.json`, buffer, {
+    if (buffer.length > MAX_IMAGE_SIZE) {
+      return NextResponse.json({ error: "Image size exceeds the 50 MB limit" }, { status: 413 });
+    }
+
+    const { url } = await put(`${folderPath}image.png`, buffer, {
       access: "public",
-      contentType: "application/json",
-      addRandomSuffix: false,
+      contentType: "image/png",
     });
 
-    return NextResponse.json({ id, url });
+    return NextResponse.json({ url });
   } catch (error) {
     console.error(error);
-    return NextResponse.json({ error: "Failed to upload data" }, { status: 500 });
+    return NextResponse.json({ error: "Failed to upload image" }, { status: 500 });
   }
 }

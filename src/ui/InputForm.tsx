@@ -2,7 +2,8 @@
 
 import React from "react";
 import { useFormContext } from "@/lib/contexts/FormContext";
-import { presetDimensions } from "@/lib/types";
+import { Aspects } from "@/lib/types";
+import { fonts } from "@/lib/data/fonts";
 
 export default function InputForm() {
   const {
@@ -12,12 +13,13 @@ export default function InputForm() {
     setForegroundColor,
     backgroundColor,
     setBackgroundColor,
-    dimensions,
     setDimensions,
     fontSize,
     setFontSize,
     fontFamily,
     setFontFamily,
+    aspect,
+    setAspect,
   } = useFormContext();
 
   const handleTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -32,18 +34,11 @@ export default function InputForm() {
     setBackgroundColor(e.target.value);
   };
 
-  const handleWidthChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setDimensions({ ...dimensions, width: Number(e.target.value) });
-  };
-
-  const handleHeightChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setDimensions({ ...dimensions, height: Number(e.target.value) });
-  };
-
-  const handlePresetChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const selectedPreset = presetDimensions[e.target.value as keyof typeof presetDimensions];
-    if (selectedPreset) {
-      setDimensions(selectedPreset);
+  const handleAspectsChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const selectedAspect = e.target.value;
+    if (selectedAspect && Aspects[selectedAspect]) {
+      setAspect(e.target.value);
+      setDimensions(Aspects[selectedAspect]);
     }
   };
 
@@ -70,18 +65,10 @@ export default function InputForm() {
         <input type="color" value={backgroundColor} onChange={handleBackgroundColorChange} />
       </div>
       <div>
-        <label>Width:</label>
-        <input type="number" value={dimensions.width} onChange={handleWidthChange} />
-      </div>
-      <div>
-        <label>Height:</label>
-        <input type="number" value={dimensions.height} onChange={handleHeightChange} />
-      </div>
-      <div>
-        <label>Preset Dimensions:</label>
-        <select onChange={handlePresetChange}>
+        <label>Aspects:</label>
+        <select onChange={handleAspectsChange} value={aspect}>
           <option value="">Select a preset</option>
-          {Object.keys(presetDimensions).map((key) => (
+          {Object.keys(Aspects).map((key) => (
             <option key={key} value={key}>
               {key}
             </option>
@@ -96,18 +83,11 @@ export default function InputForm() {
       <div>
         <label>Font Family:</label>
         <select value={fontFamily} onChange={handleFontFamilyChange}>
-          <option value="Arial">Arial</option>
-          <option value="Helvetica">Helvetica</option>
-          <option value="Times New Roman">Times New Roman</option>
-          <option value="Courier New">Courier New</option>
-          <option value="Verdana">Verdana</option>
-          <option value="Georgia">Georgia</option>
-          <option value="Palatino">Palatino</option>
-          <option value="Garamond">Garamond</option>
-          <option value="Comic Sans MS">Comic Sans MS</option>
-          <option value="Trebuchet MS">Trebuchet MS</option>
-          <option value="Arial Black">Arial Black</option>
-          <option value="Impact">Impact</option>
+          {fonts.map((font) => (
+            <option key={font} value={font}>
+              {font}
+            </option>
+          ))}
         </select>
       </div>
     </form>
