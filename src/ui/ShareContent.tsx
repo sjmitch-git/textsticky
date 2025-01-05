@@ -1,17 +1,15 @@
 "use client";
 
-import { useSearchParams, useRouter } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
-import { FaEdit } from "react-icons/fa";
 import { useFormContext } from "@/lib/contexts/FormContext";
 import DownloadButton from "@/ui/DownloadButton";
 import SaveButton from "@/ui/SaveButton";
 import EditButton from "@/ui/EditButton";
-import { Loading, Button } from "@/lib/fluid";
+import { Loading } from "@/lib/fluid";
 
 const ShareContent = () => {
-  const router = useRouter();
   const searchParams = useSearchParams();
   const [imageData, setImageData] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
@@ -65,10 +63,6 @@ const ShareContent = () => {
       fetchData();
     }
   }, [searchParams]);
-
-  const handleEdit = () => {
-    router.push("/");
-  };
 
   return (
     <>

@@ -14,7 +14,7 @@ interface ExtendedSaveButtonProps extends SaveButtonProps {
 const SaveButton = ({ imageData, blobId, formState }: ExtendedSaveButtonProps) => {
   const router = useRouter();
   const [saved, setSaved] = useState(false);
-  const [savedImages, setSavedImages] = useState<SavedImageProps[]>([]);
+  const [, setSavedImages] = useState<SavedImageProps[]>([]);
 
   useEffect(() => {
     const imagesFromStorage = JSON.parse(localStorage.getItem("savedImages") || "[]");

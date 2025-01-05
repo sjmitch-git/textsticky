@@ -9,7 +9,7 @@ const SelectFontFamily = ({ onChange, font }: SelectFontFamilyProps) => {
 
   useEffect(() => {
     setOptions(fonts);
-  }, [fonts]);
+  }, []);
 
   return (
     <Label label="Font Family:" size="md" layout="row">

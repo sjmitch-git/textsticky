@@ -8,7 +8,7 @@ const SelectAspect = ({ onChange, aspect }: SelectAspectProps) => {
 
   useEffect(() => {
     setOptions(Object.keys(Aspects));
-  }, [Aspects]);
+  }, []);
 
   return (
     <Label label="Aspect:" size="md" layout="row">
