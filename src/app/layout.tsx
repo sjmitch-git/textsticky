@@ -3,33 +3,36 @@ import { FormProvider } from "@/lib/contexts/FormContext";
 import "@/styles/index.css";
 import Header from "@/ui/Header";
 import Footer from "@/ui/Footer";
+import { URLs, MetaData } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "TextSticky - Create Custom Text Sticky Notes",
-  description:
-    "Design and share personalized sticky notes with custom text, colors, and dimensions.",
-  keywords: "Text Sticky, Custom Notes, Placeholder Generator, Social Media Images",
-  authors: [{ name: "Stephen Mitchell" }],
+  title: MetaData.defaultTitle,
+  description: MetaData.defaultDescription,
+  keywords: MetaData.defaultKeywords,
+  generator: "Next.js",
+  manifest: "/manifest.json",
+  authors: [{ name: MetaData.defaultAuthor, url: MetaData.defaultAuthorUrl }],
+  metadataBase: new URL(URLs.base),
   openGraph: {
-    title: "TextSticky - Create Custom Text Sticky Notes",
-    description:
-      "Design and share personalized sticky notes with custom text, colors, and dimensions.",
-    /* images: [
+    title: MetaData.defaultTitle,
+    description: MetaData.defaultDescription,
+    images: [
       {
-        url: "/textsticky-preview.png", // Replace with an actual image path
-        width: 1200,
-        height: 630,
-        alt: "Preview of a custom sticky note",
+        url: MetaData.defaultImage,
+        width: MetaData.defaultImageWidth,
+        height: MetaData.defaultImageHeight,
+        alt: MetaData.defaultImageAlt,
       },
-    ], */
-    siteName: "TextSticky",
+    ],
+    siteName: MetaData.defaultSitename,
   },
   twitter: {
-    card: "summary_large_image",
-    title: "TextSticky - Create Custom Text Sticky Notes",
-    description:
-      "Design and share personalized sticky notes with custom text, colors, and dimensions.",
+    card: MetaData.defaultTwitterCard,
   },
+  icons: [
+    { rel: "apple-touch-icon", url: "icons/icon-128x128.png" },
+    { rel: "icon", url: "icons/icon-128x128.png" },
+  ],
 };
 
 export default function RootLayout({
@@ -42,7 +45,9 @@ export default function RootLayout({
       <body className="flex flex-col min-h-screen">
         <Header />
         <FormProvider>
-          <main className="flex-grow container mx-auto max-w-4xl p-4 lg:px-0">{children}</main>
+          <main className="flex-grow container mx-auto max-w-4xl py-8 px-4 lg:px-0">
+            {children}
+          </main>
         </FormProvider>
         <Footer />
       </body>

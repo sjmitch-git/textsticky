@@ -19,6 +19,8 @@ export interface FormState {
   fontSize: number;
   fontFamily: string;
   aspect: string;
+  strokeWidth: number;
+  strokeColor: string;
 }
 
 export interface FormContextProps extends FormState {
@@ -29,9 +31,9 @@ export interface FormContextProps extends FormState {
   setFontSize: SetState<number>;
   setFontFamily: SetState<string>;
   setAspect: SetState<string>;
+  setStrokeWidth: SetState<number>;
+  setStrokeColor: SetState<string>;
 }
-
-// export interface InputFormProps extends Partial<FormContextProps> {}
 
 export interface PreviewCanvasProps extends Omit<FormState, "aspect"> {
   canvasRef: React.RefObject<HTMLCanvasElement | null>;
@@ -55,4 +57,26 @@ export interface SavedImageProps {
   blobId: string;
   created: string;
   state: FormState;
+}
+
+export interface DeleteButtonProps {
+  index: number;
+  onClick: (index: number) => void;
+}
+
+export interface SelectAspectProps {
+  aspect: string;
+  onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+}
+
+export interface SelectFontFamilyProps {
+  font: string;
+  onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+}
+
+export interface ColorInputProps {
+  label: string;
+  name: string;
+  value: string;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }

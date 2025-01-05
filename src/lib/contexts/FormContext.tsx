@@ -4,14 +4,16 @@ import React, { createContext, useContext, useState } from "react";
 
 import { FormState, FormContextProps } from "@/lib/types";
 
-const defaultState: FormState = {
-  text: "Hello, world!",
+export const defaultState: FormState = {
+  text: "Hello!",
   foregroundColor: "#374151",
   backgroundColor: "#d1d5db",
   dimensions: { width: 1024, height: 512 },
-  fontSize: 18,
+  fontSize: 100,
   fontFamily: "Arial",
   aspect: "landscape",
+  strokeWidth: 0,
+  strokeColor: "#f7f7f7",
 };
 
 const FormContext = createContext<FormContextProps | undefined>(undefined);
@@ -24,6 +26,8 @@ export const FormProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [fontSize, setFontSize] = useState(defaultState.fontSize);
   const [fontFamily, setFontFamily] = useState(defaultState.fontFamily);
   const [aspect, setAspect] = useState(defaultState.aspect);
+  const [strokeWidth, setStrokeWidth] = useState(defaultState.strokeWidth);
+  const [strokeColor, setStrokeColor] = useState(defaultState.strokeColor);
 
   return (
     <FormContext.Provider
@@ -42,6 +46,10 @@ export const FormProvider: React.FC<{ children: React.ReactNode }> = ({ children
         setFontFamily,
         aspect,
         setAspect,
+        strokeWidth,
+        setStrokeWidth,
+        strokeColor,
+        setStrokeColor,
       }}
     >
       {children}

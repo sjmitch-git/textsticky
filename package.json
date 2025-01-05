@@ -9,18 +9,19 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@smitch/fluid": "^2.5.17",
+    "@smitch/fluid": "^3.0.0",
     "@vercel/blob": "^0.27.0",
-    "axios": "^1.7.9",
-    "color": "^4.2.3",
     "next": "15.1.2",
+    "next-pwa": "^5.6.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "screenfull": "^6.0.2",
     "uuid": "^11.0.3"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@types/color": "^4.2.0",
+    "@types/next-pwa": "^5.6.9",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",

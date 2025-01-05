@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { put } from "@vercel/blob";
 
-const MAX_IMAGE_SIZE = 50 * 1024 * 1024;
+const MAX_IMAGE_SIZE = 5 * 1024 * 1024;
 
 export async function POST(req: NextRequest) {
   try {
@@ -16,7 +16,7 @@ export async function POST(req: NextRequest) {
     const buffer = Buffer.from(base64Image.split(",")[1], "base64");
 
     if (buffer.length > MAX_IMAGE_SIZE) {
-      return NextResponse.json({ error: "Image size exceeds the 50 MB limit" }, { status: 413 });
+      return NextResponse.json({ error: "Image size exceeds the 5 MB limit" }, { status: 413 });
     }
 
     const { url } = await put(`${folderPath}image.png`, buffer, {

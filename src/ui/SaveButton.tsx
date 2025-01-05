@@ -1,17 +1,31 @@
-import React, { useState } from "react";
+"use client";
 
-import { SaveButtonProps, FormState } from "@/lib/types";
+import React, { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
+
+import { Button } from "@/lib/fluid";
+import { SaveButtonProps, FormState, SavedImageProps } from "@/lib/types";
+import { FaBookmark } from "react-icons/fa";
 
 interface ExtendedSaveButtonProps extends SaveButtonProps {
   formState: FormState;
 }
 
 const SaveButton = ({ imageData, blobId, formState }: ExtendedSaveButtonProps) => {
+  const router = useRouter();
   const [saved, setSaved] = useState(false);
+  const [savedImages, setSavedImages] = useState<SavedImageProps[]>([]);
+
+  useEffect(() => {
+    const imagesFromStorage = JSON.parse(localStorage.getItem("savedImages") || "[]");
+    setSavedImages(imagesFromStorage);
+
+    const savedImage = imagesFromStorage.find((img: SavedImageProps) => img.blobId === blobId);
+    if (savedImage) setSaved(true);
+  }, [blobId]);
+
   const handleSave = () => {
     try {
-      const savedImages = JSON.parse(localStorage.getItem("savedImages") || "[]");
-
       const newImageEntry = {
         url: imageData,
         blobId: blobId,
@@ -19,10 +33,14 @@ const SaveButton = ({ imageData, blobId, formState }: ExtendedSaveButtonProps) =
         state: formState,
       };
 
-      savedImages.push(newImageEntry);
-      localStorage.setItem("savedImages", JSON.stringify(savedImages));
+      setSavedImages((prevImages) => {
+        const updatedImages = [...prevImages, newImageEntry as SavedImageProps];
+        localStorage.setItem("savedImages", JSON.stringify(updatedImages));
+        return updatedImages;
+      });
 
       setSaved(true);
+      router.push("/saved");
     } catch (error) {
       console.error("Failed to save the image:", error);
       setSaved(false);
@@ -30,9 +48,20 @@ const SaveButton = ({ imageData, blobId, formState }: ExtendedSaveButtonProps) =
   };
 
   return (
-    <button className="bg-primary text-white" onClick={handleSave}>
-      {saved ? "Saved!" : "Save"}
-    </button>
+    <Button
+      btnBackground="primary"
+      btnColor="light"
+      outline
+      outlineColor="light"
+      hoverScale
+      layout="rounded"
+      size="md"
+      onClick={handleSave}
+      disabled={saved}
+    >
+      <FaBookmark />
+      <span>{saved ? "Saved!" : "Save"}</span>
+    </Button>
   );
 };
 

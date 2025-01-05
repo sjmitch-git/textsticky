@@ -5,8 +5,16 @@ import { useFormContext } from "@/lib/contexts/FormContext";
 import UploadButton from "@/ui/UploadButton";
 
 export default function PreviewCanvas() {
-  const { text, foregroundColor, backgroundColor, dimensions, fontSize, fontFamily } =
-    useFormContext();
+  const {
+    text,
+    foregroundColor,
+    backgroundColor,
+    dimensions,
+    fontSize,
+    fontFamily,
+    strokeWidth,
+    strokeColor,
+  } = useFormContext();
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -24,20 +32,39 @@ export default function PreviewCanvas() {
         ctx.textAlign = "center";
         ctx.textBaseline = "middle";
 
+        ctx.lineWidth = strokeWidth;
+        ctx.strokeStyle = strokeColor;
+
         const lines = text.split("\n");
         const lineHeight = fontSize * 1.2;
         const x = canvas.width / 2;
         const y = canvas.height / 2 - ((lines.length - 1) * lineHeight) / 2;
 
         lines.forEach((line, index) => {
-          ctx.fillText(line, x, y + index * lineHeight);
+          const lineY = y + index * lineHeight;
+
+          if (strokeWidth > 0) {
+            ctx.strokeText(line, x, lineY);
+          }
+
+          ctx.fillText(line, x, lineY);
         });
       }
     }
-  }, [canvasRef, text, foregroundColor, backgroundColor, dimensions, fontSize, fontFamily]);
+  }, [
+    canvasRef,
+    text,
+    foregroundColor,
+    backgroundColor,
+    dimensions,
+    fontSize,
+    fontFamily,
+    strokeWidth,
+    strokeColor,
+  ]);
 
   return (
-    <div>
+    <div className="sticky md:static top-4">
       <div
         className={`relative overflow-hidden w-full mx-auto aspect-[${dimensions.width}/${dimensions.height}]`}
       >
@@ -48,7 +75,9 @@ export default function PreviewCanvas() {
           height={dimensions.height}
         />
       </div>
-      <UploadButton canvasRef={canvasRef} />
+      <div className="flex justify-center sticky bottom-4 pt-4">
+        <UploadButton canvasRef={canvasRef} />
+      </div>
     </div>
   );
 }

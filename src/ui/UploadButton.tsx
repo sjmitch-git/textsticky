@@ -3,6 +3,8 @@
 import { useRouter } from "next/navigation";
 import { useRef, useState } from "react";
 import { UploadButtonProps } from "@/lib/types";
+import { Button } from "@/lib/fluid";
+import { FaUpload } from "react-icons/fa";
 
 export default function UploadButton({ canvasRef }: UploadButtonProps) {
   const [uploading, setUploading] = useState(false);
@@ -36,5 +38,20 @@ export default function UploadButton({ canvasRef }: UploadButtonProps) {
     }
   };
 
-  return <button onClick={handleCreate}>{uploading ? "Uploading" : "Upload"}</button>;
+  return (
+    <Button
+      onClick={handleCreate}
+      btnBackground="primary"
+      btnColor="light"
+      outline
+      outlineColor="light"
+      hoverScale
+      layout="rounded"
+      size="md"
+      disabled={uploading}
+    >
+      <FaUpload />
+      <span>{uploading ? "Uploading" : "Upload"}</span>
+    </Button>
+  );
 }

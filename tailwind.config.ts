@@ -1,10 +1,13 @@
 import type { Config } from "tailwindcss";
+import colors from "tailwindcss/colors";
 
 module.exports = {
+  darkMode: "class",
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/ui/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./node_modules/@smitch/fluid/**/{Heading,Loading,Spinner,Label,TextArea,RangeInput,Input,Select,Button}.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
@@ -26,11 +29,44 @@ module.exports = {
         },
         neutral: {
           DEFAULT: "var(--color-neutral-gray)",
-          light: "var(--color-neutral-gray-lightest)",
-          dark: "var(--color-neutral-gray-darkest)",
+        },
+        light: {
+          DEFAULT: "var(--color-neutral-gray-lightest)",
+        },
+        dark: {
+          DEFAULT: "var(--color-neutral-gray-darkest)",
+        },
+        info: {
+          DEFAULT: colors.sky[400],
+          light: colors.sky[200],
+          dark: colors.sky[600],
+        },
+        success: {
+          DEFAULT: colors.green[600],
+          light: colors.green[400],
+          dark: colors.green[800],
+        },
+        warning: {
+          DEFAULT: colors.amber[500],
+          light: colors.amber[300],
+          dark: colors.amber[700],
+        },
+        error: {
+          DEFAULT: colors.red[600],
+          light: colors.red[400],
+          dark: colors.red[800],
+        },
+        danger: {
+          DEFAULT: colors.red[600],
+          light: colors.red[400],
+          dark: colors.red[800],
         },
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require("@tailwindcss/forms")({
+      strategy: "class",
+    }),
+  ],
 } satisfies Config;

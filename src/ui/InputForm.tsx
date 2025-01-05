@@ -2,8 +2,12 @@
 
 import React from "react";
 import { useFormContext } from "@/lib/contexts/FormContext";
+import { Colors } from "@/lib/constants";
+import SelectAspect from "@/ui/SelectAspect";
+import SelectFontFamily from "@/ui/SelectFontFamily";
+import ColorInput from "@/ui/ColorInput";
 import { Aspects } from "@/lib/types";
-import { fonts } from "@/lib/data/fonts";
+import { TextArea, RangeInput } from "@/lib/fluid";
 
 export default function InputForm() {
   const {
@@ -20,6 +24,10 @@ export default function InputForm() {
     setFontFamily,
     aspect,
     setAspect,
+    strokeWidth,
+    setStrokeWidth,
+    strokeColor,
+    setStrokeColor,
   } = useFormContext();
 
   const handleTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -34,6 +42,10 @@ export default function InputForm() {
     setBackgroundColor(e.target.value);
   };
 
+  const handleStrokeColorChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setStrokeColor(e.target.value);
+  };
+
   const handleAspectsChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedAspect = e.target.value;
     if (selectedAspect && Aspects[selectedAspect]) {
@@ -42,8 +54,12 @@ export default function InputForm() {
     }
   };
 
-  const handleFontSizeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFontSize(Number(e.target.value));
+  const handleFontSizeChange = (value: number) => {
+    setFontSize(value);
+  };
+
+  const handleStrokeWidthChange = (value: number) => {
+    setStrokeWidth(value);
   };
 
   const handleFontFamilyChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -51,44 +67,84 @@ export default function InputForm() {
   };
 
   return (
-    <form>
-      <div>
-        <label>Text:</label>
-        <textarea value={text} onChange={handleTextChange} />
-      </div>
-      <div>
-        <label>Foreground Color:</label>
-        <input type="color" value={foregroundColor} onChange={handleForegroundColorChange} />
-      </div>
-      <div>
-        <label>Background Color:</label>
-        <input type="color" value={backgroundColor} onChange={handleBackgroundColorChange} />
-      </div>
-      <div>
-        <label>Aspects:</label>
-        <select onChange={handleAspectsChange} value={aspect}>
-          <option value="">Select a preset</option>
-          {Object.keys(Aspects).map((key) => (
-            <option key={key} value={key}>
-              {key}
-            </option>
-          ))}
-        </select>
-      </div>
-      <div>
-        <label>Font Size:</label>
-        <input type="range" min="18" max="200" value={fontSize} onChange={handleFontSizeChange} />
-        <span>{fontSize}px</span>
-      </div>
-      <div>
-        <label>Font Family:</label>
-        <select value={fontFamily} onChange={handleFontFamilyChange}>
-          {fonts.map((font) => (
-            <option key={font} value={font}>
-              {font}
-            </option>
-          ))}
-        </select>
+    <form className="order-1 md:order-none">
+      <div className="space-y-4 border border-neutral-300 p-4">
+        <div>
+          <TextArea
+            label="Text:"
+            placeholder="Add your text here"
+            value={text}
+            onChange={handleTextChange}
+            rows={2}
+            resize={true}
+            maxLength={200}
+            layout="col"
+            size="md"
+            textAreaStyles="border-2 border-neutral-300"
+          />
+        </div>
+        <div className="flex justify-between">
+          <div>
+            <ColorInput
+              label="Text"
+              name="textcolor"
+              value={foregroundColor}
+              onChange={handleForegroundColorChange}
+            />
+          </div>
+          <div>
+            <ColorInput
+              label="Stroke"
+              name="strokecolor"
+              value={strokeColor}
+              onChange={handleStrokeColorChange}
+            />
+          </div>
+          <div>
+            <ColorInput
+              label="Background"
+              name="backgroundcolor"
+              value={backgroundColor}
+              onChange={handleBackgroundColorChange}
+            />
+          </div>
+        </div>
+        <div>
+          <SelectAspect aspect={aspect} onChange={handleAspectsChange} />
+        </div>
+        <div>
+          <SelectFontFamily onChange={handleFontFamilyChange} font={fontFamily} />
+        </div>
+        <div>
+          <RangeInput
+            label="Font Size:"
+            min={18}
+            max={300}
+            step="1"
+            defaultValue={fontSize}
+            rangeActive={Colors.rangeActive}
+            rangeBackground={Colors.rangeBackground}
+            thumbnailColor={Colors.thumbnailColor}
+            onChange={handleFontSizeChange}
+            layout="row"
+            hint={false}
+          />
+        </div>
+        <div>
+          <RangeInput
+            label="Stroke Width:"
+            min={0}
+            max={20}
+            step="1"
+            defaultValue={strokeWidth}
+            rangeActive={Colors.rangeActive}
+            rangeBackground={Colors.rangeBackground}
+            thumbnailColor={Colors.thumbnailColor}
+            onChange={handleStrokeWidthChange}
+            layout="row"
+            hint={false}
+          />
+        </div>
       </div>
     </form>
   );

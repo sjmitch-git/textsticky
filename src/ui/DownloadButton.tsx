@@ -1,3 +1,5 @@
+import { Button } from "@/lib/fluid";
+import { FaDownload } from "react-icons/fa";
 import { DownloadButtonProps } from "@/lib/types";
 
 export default function DownloadButton({ imageData }: DownloadButtonProps) {
@@ -21,8 +23,18 @@ export default function DownloadButton({ imageData }: DownloadButtonProps) {
   };
 
   return (
-    <button className="bg-primary text-white" onClick={handleDownload}>
-      Download Button
-    </button>
+    <Button
+      onClick={handleDownload}
+      btnBackground="primary"
+      btnColor="light"
+      outline
+      outlineColor="light"
+      hoverScale
+      layout="rounded"
+      size="md"
+    >
+      <FaDownload />
+      <span>Download Image</span>
+    </Button>
   );
 }
