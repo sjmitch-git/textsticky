@@ -6,3 +6,5 @@ export { Input } from "@smitch/fluid/lib/input";
 export { Select } from "@smitch/fluid/lib/select";
 export { RangeInput } from "@smitch/fluid/lib/rangeinput";
 export { Button } from "@smitch/fluid/lib/button";
+export { Pagination } from "@smitch/fluid/lib/pagination";
+export { Alert } from "@smitch/fluid/lib/alert";

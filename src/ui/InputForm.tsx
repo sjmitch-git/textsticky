@@ -75,7 +75,7 @@ export default function InputForm() {
             placeholder="Add your text here"
             value={text}
             onChange={handleTextChange}
-            rows={2}
+            rows={3}
             resize={true}
             maxLength={200}
             layout="col"

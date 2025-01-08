@@ -8,12 +8,12 @@
   "scope": "/",
   "start_url": "/",
   "icons": [
-    { "src": "/icons/icons-48.png", "type": "image/png", "sizes": "48x48" },
-    { "src": "/icons/icons-72.png", "type": "image/png", "sizes": "72x72" },
-    { "src": "/icons/icons-96.png", "type": "image/png", "sizes": "96x96" },
-    { "src": "/icons/icons-128.png", "type": "image/png", "sizes": "128x128" },
-    { "src": "/icons/icons-192.png", "type": "image/png", "sizes": "192x192" },
-    { "src": "/icons/icons-256.png", "type": "image/png", "sizes": "256x256" },
-    { "src": "/icons/icons-512.png", "type": "image/png", "sizes": "512x512" }
+    { "src": "/icons/image-48.png", "type": "image/png", "sizes": "48x48" },
+    { "src": "/icons/image-72.png", "type": "image/png", "sizes": "72x72" },
+    { "src": "/icons/image-96.png", "type": "image/png", "sizes": "96x96" },
+    { "src": "/icons/image-128.png", "type": "image/png", "sizes": "128x128" },
+    { "src": "/icons/image-192.png", "type": "image/png", "sizes": "192x192" },
+    { "src": "/icons/image-256.png", "type": "image/png", "sizes": "256x256" },
+    { "src": "/icons/image-512.png", "type": "image/png", "sizes": "512x512" }
   ]
 }

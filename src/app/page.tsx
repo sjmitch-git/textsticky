@@ -1,13 +1,13 @@
 import { Heading } from "@/lib/fluid";
 import InputForm from "@/ui/InputForm";
 import PreviewCanvas from "@/ui/PreviewCanvas";
-import { MetaData } from "@/lib/constants";
+import { MetaData, Labels } from "@/lib/constants";
 
 export default function Home() {
   return (
     <article>
       <div className="flex gap-8 flex-col md:flex-row items-center">
-        <Heading className="opacity-50">Create</Heading>
+        <Heading className="opacity-50">{Labels.titles.home}</Heading>
         <p className="mb-4">{MetaData.defaultDescription}</p>
       </div>
 

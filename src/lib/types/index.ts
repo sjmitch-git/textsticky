@@ -60,8 +60,8 @@ export interface SavedImageProps {
 }
 
 export interface DeleteButtonProps {
-  index: number;
-  onClick: (index: number) => void;
+  id: string;
+  onClick: (id: string) => void;
 }
 
 export interface SelectAspectProps {

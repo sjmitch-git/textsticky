@@ -32,9 +32,9 @@ export default function UploadButton({ canvasRef }: UploadButtonProps) {
       const blobId = data.url.split("image-")[1].split(".png")[0];
 
       hasUploaded.current = false;
-      setUploading(false);
 
       router.push(`/share?id=${encodeURIComponent(blobId)}`);
+      setUploading(false);
     }
   };
 

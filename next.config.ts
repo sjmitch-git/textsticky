@@ -8,16 +8,9 @@ const withPWA = require("next-pwa")({
 });
 
 const nextConfig: NextConfig = {
-  reactStrictMode: true,
-  swcMinify: true,
-  compiler: {
-    removeConsole: process.env.NODE_ENV !== "development",
-  },
   images: {
     domains: ["public.blob.vercel-storage.com"],
   },
 };
 
-module.exports = withPWA({
-  nextConfig,
-});
+module.exports = withPWA(nextConfig);
