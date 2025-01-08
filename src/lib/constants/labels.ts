@@ -6,7 +6,7 @@ const en_labels = {
   },
 };
 
-const es_labels = {
+/* const es_labels = {
   titles: {
     home: "Crear",
     share: "Compartir",
@@ -20,6 +20,6 @@ const fr_labels = {
     share: "Partager",
     saved: "Images Enregistrées",
   },
-};
+}; */
 
 export const Labels = en_labels;
