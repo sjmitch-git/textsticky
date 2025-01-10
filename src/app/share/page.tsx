@@ -31,10 +31,7 @@ export default function Share() {
     <article>
       <div className="flex gap-8 flex-col md:flex-row items-center">
         <Heading className="opacity-50">{Labels.titles.share}</Heading>
-        <p className="mb-4">
-          View your generated content, download it, copy it to the clipboard, or share it directly
-          via email.{" "}
-        </p>
+        <p className="mb-4">{Labels.descriptions.share}</p>
       </div>
       <Suspense>
         <ShareContent />

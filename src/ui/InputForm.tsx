@@ -2,7 +2,7 @@
 
 import React from "react";
 import { useFormContext } from "@/lib/contexts/FormContext";
-import { Colors } from "@/lib/constants";
+import { Colors, Inputs } from "@/lib/constants";
 import SelectAspect from "@/ui/SelectAspect";
 import SelectFontFamily from "@/ui/SelectFontFamily";
 import ColorInput from "@/ui/ColorInput";
@@ -29,6 +29,8 @@ export default function InputForm() {
     strokeColor,
     setStrokeColor,
   } = useFormContext();
+
+  const { fontsize, strokewidth } = Inputs;
 
   const handleTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setText(e.target.value);
@@ -118,8 +120,9 @@ export default function InputForm() {
         <div>
           <RangeInput
             label="Font Size:"
-            min={18}
-            max={300}
+            name="fontsize"
+            min={fontsize.min}
+            max={fontsize.max}
             step="1"
             defaultValue={fontSize}
             rangeActive={Colors.rangeActive}
@@ -133,8 +136,9 @@ export default function InputForm() {
         <div>
           <RangeInput
             label="Stroke Width:"
-            min={0}
-            max={20}
+            name="strokewidth"
+            min={strokewidth.min}
+            max={strokewidth.max}
             step="1"
             defaultValue={strokeWidth}
             rangeActive={Colors.rangeActive}
