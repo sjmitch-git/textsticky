@@ -30,8 +30,8 @@ export const metadata: Metadata = {
     card: MetaData.defaultTwitterCard,
   },
   icons: [
-    { rel: "apple-touch-icon", url: "icons/image-128.png" },
-    { rel: "icon", url: "icons/image-128.png" },
+    { rel: "apple-touch-icon", url: "icons/apple-icon-120x120.png" },
+    { rel: "icon", url: "icons//android-icon-192x192.png" },
   ],
 };
 
