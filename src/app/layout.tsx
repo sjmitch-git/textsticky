@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { FormProvider } from "@/lib/contexts/FormContext";
 import "@/styles/index.css";
 import Header from "@/ui/Header";
@@ -42,6 +43,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <GoogleAnalytics gaId={MetaData.gaId} />
       <body className="flex flex-col min-h-screen">
         <Header />
         <FormProvider>

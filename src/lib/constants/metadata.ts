@@ -11,4 +11,5 @@ export const MetaData = {
   defaultAuthor: "Stephen Mitchell",
   defaultAuthorUrl: "https://www.linkedin.com/in/stephen-m-52a3a4192/",
   defaultTwitterCard: "summary_large_image" as const,
+  gaId: process.env.GTAG || "",
 };
