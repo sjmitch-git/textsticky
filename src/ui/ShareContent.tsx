@@ -5,44 +5,27 @@ import { useEffect, useState } from "react";
 
 import { useFormContext } from "@/lib/contexts/FormContext";
 import DownloadButton from "@/ui/DownloadButton";
-import SaveButton from "@/ui/SaveButton";
 import EditButton from "@/ui/EditButton";
-import { Loading } from "@/lib/fluid";
+import CopyButton from "@/ui/CopyButton";
+import MailtoButton from "@/ui/MailtoButton";
+import { Loading, Alert } from "@/lib/fluid";
 
 const ShareContent = () => {
   const searchParams = useSearchParams();
   const [imageData, setImageData] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
-  const [id, setId] = useState<string | null>(null);
-  const {
-    aspect,
-    backgroundColor,
-    text,
-    foregroundColor,
-    dimensions,
-    fontSize,
-    fontFamily,
-    strokeColor,
-    strokeWidth,
-  } = useFormContext();
+  const { text, dimensions } = useFormContext();
+
   const formState = {
-    aspect,
-    backgroundColor,
     text,
-    foregroundColor,
     dimensions,
-    fontSize,
-    fontFamily,
-    strokeColor,
-    strokeWidth,
   };
 
   useEffect(() => {
     const blobId = searchParams.get("id");
     if (blobId) {
       const fetchData = async () => {
-        setId(blobId);
         setLoading(true);
         setError(null);
         try {
@@ -66,7 +49,11 @@ const ShareContent = () => {
 
   return (
     <>
-      {error && <p style={{ color: "red" }}>Error: {error}</p>}
+      {error && (
+        <div className={`flex justify-center w-full`}>
+          <Alert status="error" message={error} className="w-full max-w-xl" />
+        </div>
+      )}
       {!error && (
         <div className="flex flex-col items-center gap-4">
           <figure
@@ -76,16 +63,17 @@ const ShareContent = () => {
               <div
                 className={`flex justify-center absolute top-0 left-0 w-full aspect-[${dimensions.width}/${dimensions.height}]`}
               >
-                <Loading caption="Loading" loadingColor="warning" layout="col" />
+                <Loading caption="Loading Image" loadingColor="info" layout="col" />
               </div>
             )}
-            {imageData && <img src={imageData} alt="Shared Image" />}
+            {imageData && <img id="image" src={imageData} alt="Shared Image" />}
           </figure>
           {imageData && (
             <div className="flex gap-4 sticky bottom-4">
               <EditButton />
               <DownloadButton imageData={imageData} />
-              <SaveButton imageData={imageData} blobId={id} formState={formState} />
+              <CopyButton imageData={imageData} />
+              <MailtoButton imageUrl={imageData} subject={formState.text} />
             </div>
           )}
         </div>

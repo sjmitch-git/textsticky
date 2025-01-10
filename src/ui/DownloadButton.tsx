@@ -32,9 +32,10 @@ export default function DownloadButton({ imageData }: DownloadButtonProps) {
       hoverScale
       layout="rounded"
       size="md"
+      title="Download Image"
     >
       <FaDownload />
-      <span>Download Image</span>
+      <span className="hidden md:inline-block">Download Image</span>
     </Button>
   );
 }

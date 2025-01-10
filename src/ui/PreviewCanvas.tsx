@@ -1,11 +1,12 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useFormContext } from "@/lib/contexts/FormContext";
 import UploadButton from "@/ui/UploadButton";
 
 export default function PreviewCanvas() {
   const {
+    aspect,
     text,
     foregroundColor,
     backgroundColor,
@@ -15,9 +16,25 @@ export default function PreviewCanvas() {
     strokeWidth,
     strokeColor,
   } = useFormContext();
+
+  const formState = {
+    aspect,
+    backgroundColor,
+    text,
+    foregroundColor,
+    dimensions,
+    fontSize,
+    fontFamily,
+    strokeColor,
+    strokeWidth,
+  };
+
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
+  const [canvasLoaded, setCanvasLoaded] = useState(false);
+
   useEffect(() => {
+    setCanvasLoaded(true);
     const canvas = canvasRef?.current;
     if (canvas) {
       const ctx = canvas.getContext("2d");
@@ -76,7 +93,7 @@ export default function PreviewCanvas() {
         />
       </div>
       <div className="flex justify-center sticky bottom-4 pt-4">
-        <UploadButton canvasRef={canvasRef} />
+        {canvasLoaded && <UploadButton canvasRef={canvasRef} formState={formState} />}
       </div>
     </div>
   );

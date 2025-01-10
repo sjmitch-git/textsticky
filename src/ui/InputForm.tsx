@@ -80,7 +80,7 @@ export default function InputForm() {
             maxLength={200}
             layout="col"
             size="md"
-            textAreaStyles="border-2 border-neutral-300"
+            textAreaStyles="border-2 border-neutral-300 focus:border-info"
           />
         </div>
         <div className="flex justify-between">

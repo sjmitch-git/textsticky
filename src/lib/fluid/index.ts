@@ -1,5 +1,5 @@
 export { Heading } from "@smitch/fluid/lib/heading";
-export { Loading } from "@smitch/fluid/lib/loading";
+export { Loading, Spinner } from "@smitch/fluid/lib/loading";
 export { Label } from "@smitch/fluid/lib/label";
 export { TextArea } from "@smitch/fluid/lib/textarea";
 export { Input } from "@smitch/fluid/lib/input";
@@ -8,3 +8,4 @@ export { RangeInput } from "@smitch/fluid/lib/rangeinput";
 export { Button } from "@smitch/fluid/lib/button";
 export { Pagination } from "@smitch/fluid/lib/pagination";
 export { Alert } from "@smitch/fluid/lib/alert";
+export { Toast } from "@smitch/fluid/lib/toast";

@@ -20,9 +20,10 @@ const EditButton = () => {
       hoverScale
       layout="rounded"
       size="md"
+      title="Edit Image"
     >
       <FaEdit />
-      <span>Edit Image</span>
+      <span className="hidden md:inline-block">Edit Image</span>
     </Button>
   );
 };

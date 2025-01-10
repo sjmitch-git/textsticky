@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import { fonts } from "@/lib/data/fonts";
-import { Label, Select } from "@/lib/fluid";
+import { Label, Select, Loading } from "@/lib/fluid";
 import { SelectFontFamilyProps } from "@/lib/types";
 
 const SelectFontFamily = ({ onChange, font }: SelectFontFamilyProps) => {
@@ -11,14 +11,21 @@ const SelectFontFamily = ({ onChange, font }: SelectFontFamilyProps) => {
     setOptions(fonts);
   }, []);
 
+  if (options.length === 0)
+    return (
+      <div className="flex justify-center">
+        <Loading loadingColor="info" />
+      </div>
+    );
+
   return (
     <Label label="Font Family:" size="md" layout="row">
       <Select
         onChange={onChange}
-        value={font}
+        defaultValue={font}
         name="fontfamily"
         dropdownSize="md"
-        className="w-full border-neutral-300"
+        className="w-full border-neutral-300 focus:border-info"
       >
         {options.map((font) => (
           <option key={font} value={font}>

@@ -6,8 +6,8 @@ export interface Dimensions {
 export type SetState<T> = React.Dispatch<React.SetStateAction<T>>;
 
 export const Aspects: Record<string, Dimensions> = {
-  square: { width: 1080, height: 1080 },
   landscape: { width: 1024, height: 512 },
+  square: { width: 1080, height: 1080 },
   banner: { width: 1920, height: 480 },
 };
 
@@ -41,9 +41,14 @@ export interface PreviewCanvasProps extends Omit<FormState, "aspect"> {
 
 export interface UploadButtonProps {
   canvasRef: React.RefObject<HTMLCanvasElement | null>;
+  formState: FormState;
 }
 
 export interface DownloadButtonProps {
+  imageData: string;
+}
+
+export interface CopyButtonProps {
   imageData: string;
 }
 
@@ -79,4 +84,9 @@ export interface ColorInputProps {
   name: string;
   value: string;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
+export interface MailImageButtonProps {
+  imageUrl: string;
+  subject: string;
 }

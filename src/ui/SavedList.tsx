@@ -145,7 +145,7 @@ const SavedList = () => {
         </div>
       ) : (
         <div className={`flex justify-center w-full`}>
-          <Alert status="info" message="You have no saved images" />
+          <Alert status="info" message="You have no saved images" className="w-full max-w-xl" />
         </div>
       )}
     </div>

@@ -7,7 +7,7 @@ export default function Saved() {
     <article>
       <div className="flex gap-8 flex-col md:flex-row items-center">
         <Heading className="opacity-50">{Labels.titles.saved}</Heading>
-        <p className="mb-4">TBD description</p>
+        <p className="mb-4">View your saved images.</p>
       </div>
       <SavedList />
     </article>

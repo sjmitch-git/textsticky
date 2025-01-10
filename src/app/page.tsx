@@ -1,7 +1,9 @@
+import React from "react";
 import { Heading } from "@/lib/fluid";
+import { MetaData, Labels } from "@/lib/constants";
+
 import InputForm from "@/ui/InputForm";
 import PreviewCanvas from "@/ui/PreviewCanvas";
-import { MetaData, Labels } from "@/lib/constants";
 
 export default function Home() {
   return (

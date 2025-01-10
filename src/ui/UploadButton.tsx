@@ -1,15 +1,42 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useRef, useState } from "react";
-import { UploadButtonProps } from "@/lib/types";
-import { Button } from "@/lib/fluid";
+import { useRef, useState, useEffect } from "react";
+import { UploadButtonProps, SavedImageProps } from "@/lib/types";
+import { Button, Spinner } from "@/lib/fluid";
 import { FaUpload } from "react-icons/fa";
 
-export default function UploadButton({ canvasRef }: UploadButtonProps) {
+export default function UploadButton({ canvasRef, formState }: UploadButtonProps) {
   const [uploading, setUploading] = useState(false);
+  const [, setSavedImages] = useState<SavedImageProps[]>([]);
   const router = useRouter();
   const hasUploaded = useRef(false);
+
+  useEffect(() => {
+    const imagesFromStorage = JSON.parse(localStorage.getItem("savedImages") || "[]");
+    setSavedImages(imagesFromStorage);
+  }, []);
+
+  const handleSave = (imageData: string, blobId: string) => {
+    try {
+      const newImageEntry = {
+        url: imageData,
+        blobId: blobId,
+        created: new Date().toISOString(),
+        state: formState,
+      };
+
+      setSavedImages((prevImages) => {
+        const updatedImages = [...prevImages, newImageEntry as SavedImageProps];
+        localStorage.setItem("savedImages", JSON.stringify(updatedImages));
+        return updatedImages;
+      });
+
+      router.push(`/share?id=${encodeURIComponent(blobId)}`);
+    } catch (error) {
+      console.error("Failed to save the image:", error);
+    }
+  };
 
   const handleCreate = async () => {
     if (hasUploaded.current) return;
@@ -31,10 +58,9 @@ export default function UploadButton({ canvasRef }: UploadButtonProps) {
 
       const blobId = data.url.split("image-")[1].split(".png")[0];
 
-      hasUploaded.current = false;
+      handleSave(data.url, blobId);
 
-      router.push(`/share?id=${encodeURIComponent(blobId)}`);
-      setUploading(false);
+      hasUploaded.current = false;
     }
   };
 
@@ -49,9 +75,10 @@ export default function UploadButton({ canvasRef }: UploadButtonProps) {
       layout="rounded"
       size="md"
       disabled={uploading}
+      className="focus:border-info focus-visible:outline-info"
     >
-      <FaUpload />
-      <span>{uploading ? "Uploading" : "Upload"}</span>
+      {uploading ? <Spinner width={16} /> : <FaUpload />}
+      <span>Upload & Save</span>
     </Button>
   );
 }
