@@ -14,6 +14,9 @@ export const metadata: Metadata = {
   manifest: "/manifest.json",
   authors: [{ name: MetaData.defaultAuthor, url: MetaData.defaultAuthorUrl }],
   metadataBase: new URL(URLs.base),
+  verification: {
+    google: "Ws4t6yaR0RsGkflU774SwgOj3duRsycUnDwyXY3SSD0",
+  },
   openGraph: {
     title: MetaData.defaultTitle,
     description: MetaData.defaultDescription,
