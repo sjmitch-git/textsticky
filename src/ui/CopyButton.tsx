@@ -5,10 +5,12 @@ import React, { useState } from "react";
 import { Button, Toast } from "@/lib/fluid";
 import { FaCopy } from "react-icons/fa";
 import { CopyButtonProps } from "@/lib/types";
+import { Labels } from "@/lib/constants";
 
 const CopyButton = ({ imageData }: CopyButtonProps) => {
-  const [copySuccess, setCopySuccess] = useState<string | null>(null);
+  const [copyMessage, setCopyMessage] = useState("");
   const [open, setOpen] = useState(false);
+  const [toastBackground, setToastBackground] = useState<"success" | "danger">("success");
 
   const handleCopy = async () => {
     try {
@@ -23,11 +25,13 @@ const CopyButton = ({ imageData }: CopyButtonProps) => {
         }),
       ]);
 
-      setCopySuccess("Image copied to clipboard!");
+      setCopyMessage(Labels.messages.copySuccess);
+      setToastBackground("success");
       setOpen(true);
     } catch (error) {
-      console.error("Error copying image:", error);
-      setCopySuccess("Failed to copy image.");
+      console.error("Error:", error);
+      setCopyMessage(Labels.messages.copyError);
+      setToastBackground("danger");
       setOpen(true);
     }
   };
@@ -36,23 +40,24 @@ const CopyButton = ({ imageData }: CopyButtonProps) => {
     <>
       <Button
         onClick={handleCopy}
-        btnBackground="primary"
+        btnBackground="dark"
         btnColor="light"
         outline
         outlineColor="light"
         hoverScale
         layout="rounded"
-        size="md"
-        title="Copy Image"
+        size="lg"
+        title={Labels.CopyButton}
+        className="focus:border-info focus-visible:outline-info"
       >
         <FaCopy />
-        <span className="hidden md:inline-block">Copy Image</span>
+        <span className="hidden md:inline-block">{Labels.CopyButton}</span>
       </Button>
       <Toast
         open={open}
-        body={copySuccess}
+        body={copyMessage}
         onClose={() => setOpen(false)}
-        toastBackground="info"
+        toastBackground={toastBackground}
         autohide={true}
         autohideDuration={3000}
         horizontal="center"

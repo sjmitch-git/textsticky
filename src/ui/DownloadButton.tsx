@@ -1,12 +1,24 @@
-import { Button } from "@/lib/fluid";
+"use client";
+
+import React, { useState } from "react";
+import { Button, Toast } from "@/lib/fluid";
 import { FaDownload } from "react-icons/fa";
 import { DownloadButtonProps } from "@/lib/types";
+import { Labels } from "@/lib/constants";
 
 export default function DownloadButton({ imageData }: DownloadButtonProps) {
+  const [message, setMessage] = useState("");
+  const [open, setOpen] = useState(false);
+  const [toastBackground, setToastBackground] = useState<"success" | "danger">("success");
+
   const handleDownload = async () => {
     try {
       const response = await fetch(imageData, { mode: "cors" });
-      if (!response.ok) throw new Error("Failed to fetch image");
+      if (!response.ok) {
+        setMessage(Labels.messages.downloadError);
+        setToastBackground("danger");
+        setOpen(true);
+      }
 
       const blob = await response.blob();
 
@@ -14,28 +26,45 @@ export default function DownloadButton({ imageData }: DownloadButtonProps) {
       link.href = URL.createObjectURL(blob);
       link.download = "image.png";
       link.click();
-
+      setMessage(Labels.messages.downloadSuccess);
+      setToastBackground("success");
+      setOpen(true);
       URL.revokeObjectURL(link.href);
     } catch (error) {
       console.error("Download failed:", error);
-      throw new Error("Failed to download the image.");
+      setMessage(Labels.messages.downloadError);
+      setToastBackground("danger");
+      setOpen(true);
     }
   };
 
   return (
-    <Button
-      onClick={handleDownload}
-      btnBackground="primary"
-      btnColor="light"
-      outline
-      outlineColor="light"
-      hoverScale
-      layout="rounded"
-      size="md"
-      title="Download Image"
-    >
-      <FaDownload />
-      <span className="hidden md:inline-block">Download Image</span>
-    </Button>
+    <>
+      <Button
+        onClick={handleDownload}
+        btnBackground="dark"
+        btnColor="light"
+        outline
+        outlineColor="light"
+        hoverScale
+        layout="rounded"
+        size="lg"
+        title={Labels.DownloadButton}
+        className="focus:border-info focus-visible:outline-info"
+      >
+        <FaDownload />
+        <span className="hidden md:inline-block">{Labels.DownloadButton}</span>
+      </Button>
+      <Toast
+        open={open}
+        body={message}
+        onClose={() => setOpen(false)}
+        toastBackground={toastBackground}
+        autohide={true}
+        autohideDuration={3000}
+        horizontal="center"
+        vertical="middle"
+      />
+    </>
   );
 }

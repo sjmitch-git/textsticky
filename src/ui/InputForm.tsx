@@ -85,7 +85,7 @@ export default function InputForm() {
             textAreaStyles="border-2 border-neutral-300 focus:border-info"
           />
         </div>
-        <div className="flex justify-between">
+        <div className="flex gap-6">
           <div>
             <ColorInput
               label="Text"

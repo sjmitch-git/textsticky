@@ -52,9 +52,9 @@ export interface CopyButtonProps {
   imageData: string;
 }
 
-export interface SaveButtonProps {
+export interface ShareActionsProps {
   imageData: string;
-  blobId: string | null;
+  subject: string;
 }
 
 export interface SavedImageProps {

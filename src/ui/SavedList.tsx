@@ -2,7 +2,6 @@
 
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { useFormContext, defaultState } from "@/lib/contexts/FormContext";
 import { SavedImageProps } from "@/lib/types";
 import DeleteButton from "@/ui/DeleteButton";
 import { Pagination, Loading, Alert } from "@/lib/fluid";
@@ -14,17 +13,6 @@ const SavedList = () => {
   const [range, setRange] = useState(1);
   const [savedImages, setSavedImages] = useState<SavedImageProps[]>([]);
   const [paginatedImages, setPaginatedImages] = useState<SavedImageProps[]>([]);
-  const {
-    setText,
-    setForegroundColor,
-    setBackgroundColor,
-    setDimensions,
-    setFontSize,
-    setFontFamily,
-    setAspect,
-    setStrokeColor,
-    setStrokeWidth,
-  } = useFormContext();
 
   useEffect(() => {
     const updateRange = () => {
@@ -91,16 +79,19 @@ const SavedList = () => {
     const clickedImage = savedImages.find((img: SavedImageProps) => img.blobId === blobId);
     if (clickedImage) {
       const { state } = clickedImage;
-      setText(state.text);
-      setForegroundColor(state.foregroundColor);
-      setBackgroundColor(state.backgroundColor);
-      setDimensions(state.dimensions);
-      setFontSize(state.fontSize);
-      setFontFamily(state.fontFamily);
-      setAspect(state.aspect);
-      setStrokeColor(state.strokeColor || defaultState.strokeColor);
-      setStrokeWidth(state.strokeWidth || defaultState.strokeWidth);
-      router.push(`/share?id=${encodeURIComponent(blobId)}`);
+
+      const { dimensions, ...stateWithoutDimensions } = state;
+
+      const queryParams = {
+        id: blobId,
+        ...stateWithoutDimensions,
+      };
+
+      const queryString = new URLSearchParams(
+        Object.entries(queryParams).map(([key, value]) => [key, String(value)])
+      ).toString();
+
+      router.push(`/share?${queryString}`);
     }
   };
 

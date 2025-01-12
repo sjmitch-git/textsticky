@@ -3,11 +3,9 @@
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
+import { Aspects } from "@/lib/types";
 import { useFormContext } from "@/lib/contexts/FormContext";
-import DownloadButton from "@/ui/DownloadButton";
-import EditButton from "@/ui/EditButton";
-import CopyButton from "@/ui/CopyButton";
-import MailtoButton from "@/ui/MailtoButton";
+import ShareActions from "@/ui/ShareActions";
 import { Loading, Alert } from "@/lib/fluid";
 
 const ShareContent = () => {
@@ -15,7 +13,19 @@ const ShareContent = () => {
   const [imageData, setImageData] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
-  const { text, dimensions } = useFormContext();
+  const {
+    text,
+    dimensions,
+    setText,
+    setForegroundColor,
+    setBackgroundColor,
+    setDimensions,
+    setFontSize,
+    setFontFamily,
+    setAspect,
+    setStrokeColor,
+    setStrokeWidth,
+  } = useFormContext();
 
   const formState = {
     text,
@@ -23,13 +33,49 @@ const ShareContent = () => {
   };
 
   useEffect(() => {
-    const blobId = searchParams.get("id");
-    if (blobId) {
+    const id = searchParams.get("id");
+    const entries = Array.from(searchParams.entries());
+
+    if (entries.length) {
+      entries.slice(1).map(([key, value]) => {
+        const decodedValue = decodeURIComponent(value);
+
+        switch (key) {
+          case "text":
+            setText(decodedValue);
+            break;
+          case "foregroundColor":
+            setForegroundColor(decodedValue);
+            break;
+          case "backgroundColor":
+            setBackgroundColor(decodedValue);
+            break;
+          case "fontSize":
+            setFontSize(Number(decodedValue));
+            break;
+          case "fontFamily":
+            setFontFamily(decodedValue);
+            break;
+          case "aspect":
+            setAspect(decodedValue);
+            setDimensions(Aspects[decodedValue]);
+            break;
+          case "strokeColor":
+            setStrokeColor(decodedValue);
+            break;
+          case "strokeWidth":
+            setStrokeWidth(Number(decodedValue));
+            break;
+        }
+      });
+    }
+
+    if (id) {
       const fetchData = async () => {
         setLoading(true);
         setError(null);
         try {
-          const response = await fetch(`/api/blob/${encodeURIComponent(blobId)}`);
+          const response = await fetch(`/api/blob/${encodeURIComponent(id)}`);
           if (response.ok) {
             const data = await response.json();
             setImageData(data.imgUrl);
@@ -63,19 +109,12 @@ const ShareContent = () => {
               <div
                 className={`flex justify-center absolute top-0 left-0 w-full aspect-[${dimensions.width}/${dimensions.height}]`}
               >
-                <Loading caption="Loading Image" loadingColor="info" layout="col" />
+                <Loading caption="Loading Image" loadingColor="info" layout="col" size="lg" />
               </div>
             )}
             {imageData && <img id="image" src={imageData} alt="Shared Image" />}
           </figure>
-          {imageData && (
-            <div className="flex gap-4 sticky bottom-4">
-              <EditButton />
-              <DownloadButton imageData={imageData} />
-              <CopyButton imageData={imageData} />
-              <MailtoButton imageUrl={imageData} subject={formState.text} />
-            </div>
-          )}
+          {imageData && <ShareActions imageData={imageData} subject={formState.text} />}
         </div>
       )}
     </>

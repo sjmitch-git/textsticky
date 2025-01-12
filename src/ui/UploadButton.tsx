@@ -5,6 +5,7 @@ import { useRef, useState, useEffect } from "react";
 import { UploadButtonProps, SavedImageProps } from "@/lib/types";
 import { Button, Spinner } from "@/lib/fluid";
 import { FaUpload } from "react-icons/fa";
+import { Labels } from "@/lib/constants";
 
 export default function UploadButton({ canvasRef, formState }: UploadButtonProps) {
   const [uploading, setUploading] = useState(false);
@@ -32,7 +33,18 @@ export default function UploadButton({ canvasRef, formState }: UploadButtonProps
         return updatedImages;
       });
 
-      router.push(`/share?id=${encodeURIComponent(blobId)}`);
+      const { dimensions, ...stateWithoutDimensions } = formState;
+
+      const queryParams = {
+        id: blobId,
+        ...stateWithoutDimensions,
+      };
+
+      const queryString = new URLSearchParams(
+        Object.entries(queryParams).map(([key, value]) => [key, String(value)])
+      ).toString();
+
+      router.push(`/share?${queryString}`);
     } catch (error) {
       console.error("Failed to save the image:", error);
     }
@@ -67,18 +79,18 @@ export default function UploadButton({ canvasRef, formState }: UploadButtonProps
   return (
     <Button
       onClick={handleCreate}
-      btnBackground="primary"
+      btnBackground="dark"
       btnColor="light"
       outline
       outlineColor="light"
       hoverScale
       layout="rounded"
-      size="md"
+      size="lg"
       disabled={uploading}
       className="focus:border-info focus-visible:outline-info"
     >
-      {uploading ? <Spinner width={16} /> : <FaUpload />}
-      <span>Upload & Save</span>
+      {uploading ? <Spinner width={24} /> : <FaUpload />}
+      <span>{Labels.UploadButton}</span>
     </Button>
   );
 }

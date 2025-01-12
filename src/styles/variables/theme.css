@@ -2,8 +2,8 @@
 @import "./grays.css";
 
 :root {
-  --color-primary: theme("colors.indigo.500");
-  --color-primary-light: theme("colors.indigo.200");
+  --color-primary: theme("colors.indigo.600");
+  --color-primary-light: theme("colors.indigo.300");
   --color-primary-dark: theme("colors.indigo.900");
   --color-secondary: theme("colors.violet.500");
   --color-secondary-light: theme("colors.violet.200");

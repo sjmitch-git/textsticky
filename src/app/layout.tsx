@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   },
   icons: [
     { rel: "apple-touch-icon", url: "icons/apple-icon-120x120.png" },
-    { rel: "icon", url: "icons//android-icon-192x192.png" },
+    { rel: "icon", url: "icons/android-icon-192x192.png" },
   ],
 };
 

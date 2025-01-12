@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Button } from "@/lib/fluid";
 import { FaEnvelope } from "react-icons/fa";
 import { MailImageButtonProps } from "@/lib/types";
+import { Labels } from "@/lib/constants";
 
 const MailtoButton = ({ imageUrl, subject }: MailImageButtonProps) => {
   const [mailSubject, setSubject] = useState("");
@@ -23,9 +24,7 @@ const MailtoButton = ({ imageUrl, subject }: MailImageButtonProps) => {
       }),
     ]);
 
-    const htmlBody = encodeURIComponent(
-      `Paste your image here. Ctrl + V (Windows) or Command (⌘) + V (macOS)`
-    );
+    const htmlBody = encodeURIComponent(Labels.messages.mailtoBody);
     const mailtoLink = `mailto:?subject=${encodedSubject}&body=${htmlBody}`;
     window.open(mailtoLink, "_blank");
   };
@@ -34,17 +33,18 @@ const MailtoButton = ({ imageUrl, subject }: MailImageButtonProps) => {
     <>
       <Button
         onClick={handleMailClick}
-        btnBackground="primary"
+        btnBackground="dark"
         btnColor="light"
         outline
         outlineColor="light"
         hoverScale
         layout="rounded"
-        size="md"
-        title="Mail Image"
+        size="lg"
+        title={Labels.MailtoButton}
+        className="focus:border-info focus-visible:outline-info"
       >
         <FaEnvelope />
-        <span className="hidden md:inline-block">Mail Image</span>
+        <span className="hidden md:inline-block">{Labels.MailtoButton}</span>
       </Button>
     </>
   );

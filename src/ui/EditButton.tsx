@@ -2,6 +2,7 @@ import { useRouter } from "next/navigation";
 
 import { Button } from "@/lib/fluid";
 import { FaEdit } from "react-icons/fa";
+import { Labels } from "@/lib/constants";
 
 const EditButton = () => {
   const router = useRouter();
@@ -13,17 +14,18 @@ const EditButton = () => {
   return (
     <Button
       onClick={handleEdit}
-      btnBackground="primary"
+      btnBackground="dark"
       btnColor="light"
       outline
       outlineColor="light"
       hoverScale
       layout="rounded"
-      size="md"
-      title="Edit Image"
+      size="lg"
+      title={Labels.EditButton}
+      className="focus:border-info focus-visible:outline-info"
     >
       <FaEdit />
-      <span className="hidden md:inline-block">Edit Image</span>
+      <span className="hidden md:inline-block">{Labels.EditButton}</span>
     </Button>
   );
 };
