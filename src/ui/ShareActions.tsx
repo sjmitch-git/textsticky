@@ -4,6 +4,9 @@ import CopyButton from "@/ui/CopyButton";
 import MailtoButton from "@/ui/MailtoButton";
 import TwitterShareButton from "@/ui/TwitterButton";
 import LinkedInShareButton from "@/ui/LinkedinButton";
+import FacebookShareButton from "@/ui/FacebookButton";
+import SlackShareButton from '@/ui/SlackButton';
+import WhatsAppShareButton from '@/ui/WhatsappButton';
 
 import { ShareActionsProps } from "@/lib/types";
 
@@ -12,6 +15,9 @@ const ShareActions = ({ imageData, subject }: ShareActionsProps) => {
     <div className="flex flex-col gap-4 sticky bottom-4 items-center">
       <div className="flex md:flex-col md:fixed md:left-4 md:top-1/3 items-center gap-2">
         <TwitterShareButton text={subject} />
+        <FacebookShareButton />
+        <SlackShareButton text={subject} />
+        <WhatsAppShareButton text={subject} />
         <LinkedInShareButton />
       </div>
       <div className="flex gap-4">
