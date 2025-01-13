@@ -6,7 +6,7 @@ import { MetaData, Labels } from "@/lib/constants";
 import { Aspects } from "@/lib/types";
 
 type Props = {
-  searchParams: { [key: string]: string };
+  searchParams: Promise<{ [key: string]: string }>;
 };
 
 export async function generateMetadata({ searchParams }: Props): Promise<Metadata> {
