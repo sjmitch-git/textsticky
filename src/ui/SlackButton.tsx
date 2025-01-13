@@ -8,7 +8,7 @@ interface SlackShareButtonProps {
   text: string;
 }
 
-const SlackShareButton = ({ text }: TwitterShareButtonProps)  => {
+const SlackShareButton = ({ text }: SlackShareButtonProps)  => {
   const handleShareClick = () => {
     const baseUrl = "https://slack.com/share";
     const shareUrl = new URL(baseUrl);

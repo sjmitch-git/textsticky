@@ -13,7 +13,7 @@ const WhatsAppShareButton  = ({ text }: WhatsAppShareButtonProps) => {
     const baseUrl = "https://api.whatsapp.com/send";
     const shareUrl = new URL(baseUrl);
 
-    shareUrl.searchParams.set("text", `Check out this link: ${window.location.href}`);
+    shareUrl.searchParams.set("text", `${text}: ${window.location.href}`);
 
     window.open(shareUrl.toString(), "_blank", "noopener,noreferrer");
   };
