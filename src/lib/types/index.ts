@@ -6,9 +6,9 @@ export interface Dimensions {
 export type SetState<T> = React.Dispatch<React.SetStateAction<T>>;
 
 export const Aspects: Record<string, Dimensions> = {
-  landscape: { width: 1024, height: 512 },
+  landscape: { width: 1200, height: 630 },
   square: { width: 1080, height: 1080 },
-  banner: { width: 1920, height: 480 },
+  banner: { width: 1500, height: 500 },
 };
 
 export interface FormState {

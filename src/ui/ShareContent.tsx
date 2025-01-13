@@ -91,7 +91,18 @@ const ShareContent = () => {
       };
       fetchData();
     }
-  }, [searchParams]);
+  }, [
+    searchParams,
+    setAspect,
+    setBackgroundColor,
+    setDimensions,
+    setFontFamily,
+    setFontSize,
+    setForegroundColor,
+    setStrokeColor,
+    setStrokeWidth,
+    setText,
+  ]);
 
   return (
     <>

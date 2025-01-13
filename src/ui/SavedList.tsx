@@ -80,6 +80,7 @@ const SavedList = () => {
     if (clickedImage) {
       const { state } = clickedImage;
 
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const { dimensions, ...stateWithoutDimensions } = state;
 
       const queryParams = {

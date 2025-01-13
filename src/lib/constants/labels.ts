@@ -24,6 +24,10 @@ const en_labels = {
     downloadError: "Failed to download image",
     mailtoBody: `Paste your image here. Ctrl + V (Windows) or Command (⌘) + V (macOS)`,
   },
+  nav: {
+    create: 'Create',
+    saved: 'Saved'
+  }
 };
 
 /* const es_labels = {

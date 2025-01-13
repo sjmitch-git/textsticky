@@ -33,6 +33,7 @@ export default function UploadButton({ canvasRef, formState }: UploadButtonProps
         return updatedImages;
       });
 
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const { dimensions, ...stateWithoutDimensions } = formState;
 
       const queryParams = {
