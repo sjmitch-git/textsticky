@@ -13,28 +13,28 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          DEFAULT: "var(--color-primary)",
-          light: "var(--color-primary-light)",
-          dark: "var(--color-primary-dark)",
+          DEFAULT: colors.indigo[600],
+          light: colors.indigo[300],
+          dark: colors.indigo[900],
         },
         secondary: {
-          DEFAULT: "var(--color-secondary)",
-          light: "var(--color-secondary-light)",
-          dark: "var(--color-secondary-dark)",
+          DEFAULT: colors.violet[600],
+          light: colors.violet[300],
+          dark: colors.violet[900],
         },
         accent: {
-          DEFAULT: "var(--color-accent)",
-          light: "var(--color-accent-light)",
-          dark: "var(--color-accent-dark)",
+          DEFAULT: colors.amber[600],
+          light: colors.amber[300],
+          dark: colors.amber[700],
         },
         neutral: {
-          DEFAULT: "var(--color-neutral-gray)",
+          DEFAULT: colors.stone[300],
         },
         light: {
-          DEFAULT: "var(--color-neutral-gray-lightest)",
+          DEFAULT: colors.stone[100],
         },
         dark: {
-          DEFAULT: "var(--color-neutral-gray-darkest)",
+          DEFAULT: colors.stone[900],
         },
         info: {
           DEFAULT: colors.sky[400],
