@@ -1,5 +1,4 @@
 import Nav from "@/ui/Nav";
-import { MetaData } from "@/lib/constants";
 
 export default function Header() {
   return (
