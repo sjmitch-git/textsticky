@@ -39,6 +39,19 @@ export const metadata: Metadata = {
   ],
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  url: new URL(URLs.base),
+  name: MetaData.defaultSitename,
+  description: MetaData.defaultDescription,
+  author: {
+    "@type": "Person",
+    name: MetaData.defaultAuthor,
+    url: MetaData.defaultAuthorUrl,
+  },
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -55,6 +68,10 @@ export default function RootLayout({
           </main>
         </FormProvider>
         <Footer />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
       </body>
     </html>
   );

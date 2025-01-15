@@ -1,9 +1,10 @@
 export const MetaData = {
   defaultSitename: "Sticky Blob",
-  defaultTitle: "Sticky Blob - Create Custom Text Sticky Notes",
+  defaultTitle: "Sticky Blob - Design Custom Sticky Notes Online | Free and Easy!",
   defaultDescription:
-    "Design and share personalized sticky notes with custom text, colors, and dimensions.",
-  defaultKeywords: "Sticky Blob, Custom Notes, Placeholder Generator, Social Media Images",
+    "Create personalized sticky notes with custom text, colors, and sizes. Sticky Blob makes it easy to design and share your notes online for free!",
+  defaultKeywords:
+    "custom sticky notes, text notes, online note designer, share sticky notes, personalized notes",
   defaultImage: "/og-preview.png",
   defaultImageAlt: "Default preview of a sticky note",
   defaultImageWidth: 1024,

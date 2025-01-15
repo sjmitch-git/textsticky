@@ -3,7 +3,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useFormContext } from "@/lib/contexts/FormContext";
 import UploadButton from "@/ui/UploadButton";
-import { URLs } from "@/lib/constants";
+import { URLs, MetaData } from "@/lib/constants";
 
 export default function PreviewCanvas() {
   const {
@@ -68,7 +68,9 @@ export default function PreviewCanvas() {
           ctx.fillText(line, x, lineY);
         });
 
-        const watermarkText = URLs.base.split("://")[1];
+        const watermarkText = URLs.base?.includes("://")
+          ? URLs.base.split("://")[1].replace(/\/$/, "")
+          : URLs.base?.replace(/\/$/, "") || MetaData.defaultSitename;
         const watermarkFontSize = 24;
         const watermarkX = canvas.width - 20;
         const watermarkY = canvas.height - 10;
