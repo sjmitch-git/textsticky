@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { SavedImageProps } from "@/lib/types";
 import DeleteButton from "@/ui/DeleteButton";
 import { Pagination, Loading, Alert } from "@/lib/fluid";
+import { Labels } from "@/lib/constants";
 
 const SavedList = () => {
   const router = useRouter();
@@ -109,7 +110,7 @@ const SavedList = () => {
                     alt={`Saved image ${index + 1}`}
                     className="w-full h-full object-cover cursor-pointer"
                     onClick={() => handleClick(image.blobId)}
-                    title="Click to share this image"
+                    title={Labels.messages.savedImageTitle}
                   />
                   <figcaption className="absolute w-full bottom-0 flex p-1 justify-end">
                     <DeleteButton onClick={handleDelete} id={image.blobId} />
@@ -125,19 +126,28 @@ const SavedList = () => {
             btnColor="dark"
             results={savedImages.length}
             range={range}
-            feedback={false}
-            feedbackLabel="Page:"
+            feedback={true}
+            feedbackLabel={Labels.feedbackLabel}
             page={page}
             onChange={(newpage) => setPage(newpage)}
           />
         </>
       ) : loading ? (
         <div className={`flex justify-center w-full`}>
-          <Loading caption="Loading Images" loadingColor="warning" layout="col" />
+          <Loading
+            caption={Labels.messages.loadingSaved}
+            loadingColor="info"
+            size="lg"
+            layout="col"
+          />
         </div>
       ) : (
         <div className={`flex justify-center w-full`}>
-          <Alert status="info" message="You have no saved images" className="w-full max-w-xl" />
+          <Alert
+            status="info"
+            message={Labels.messages.savedNoImages}
+            className="w-full max-w-xl"
+          />
         </div>
       )}
     </div>

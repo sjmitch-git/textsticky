@@ -8,10 +8,10 @@ export const defaultState: FormState = {
   text: "Hello!",
   foregroundColor: "#374151",
   backgroundColor: "#d1d5db",
-  dimensions: { width: 1024, height: 512 },
+  dimensions: { width: 1080, height: 1080 },
   fontSize: 100,
   fontFamily: "Arial",
-  aspect: "landscape",
+  aspect: "square",
   strokeWidth: 0,
   strokeColor: "#f7f7f7",
 };

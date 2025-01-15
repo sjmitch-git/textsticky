@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   authors: [{ name: MetaData.defaultAuthor, url: MetaData.defaultAuthorUrl }],
   metadataBase: new URL(URLs.base),
   verification: {
-    google: "Ws4t6yaR0RsGkflU774SwgOj3duRsycUnDwyXY3SSD0",
+    google: process.env.GOOGLE_SITE_VERIFICATION,
   },
   openGraph: {
     title: MetaData.defaultTitle,

@@ -10,3 +10,10 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@font-face {
+  font-family: "Impact";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Impact Regular"), url("/fonts/impact.woff") format("woff");
+}

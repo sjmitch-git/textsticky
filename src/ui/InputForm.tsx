@@ -2,11 +2,10 @@
 
 import React from "react";
 import { useFormContext } from "@/lib/contexts/FormContext";
-import { Colors, Inputs } from "@/lib/constants";
-import SelectAspect from "@/ui/SelectAspect";
+import { Colors, Inputs, Labels } from "@/lib/constants";
+import RadiosAspect from "@/ui/RadiosAspect";
 import SelectFontFamily from "@/ui/SelectFontFamily";
 import ColorInput from "@/ui/ColorInput";
-import { Aspects } from "@/lib/types";
 import { TextArea, RangeInput } from "@/lib/fluid";
 
 export default function InputForm() {
@@ -17,20 +16,18 @@ export default function InputForm() {
     setForegroundColor,
     backgroundColor,
     setBackgroundColor,
-    setDimensions,
     fontSize,
     setFontSize,
     fontFamily,
     setFontFamily,
-    aspect,
-    setAspect,
     strokeWidth,
     setStrokeWidth,
     strokeColor,
     setStrokeColor,
   } = useFormContext();
 
-  const { fontsize, strokewidth } = Inputs;
+  const { fontsize, strokewidth, compose } = Inputs;
+  const { inputs } = Labels;
 
   const handleTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setText(e.target.value);
@@ -46,14 +43,6 @@ export default function InputForm() {
 
   const handleStrokeColorChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setStrokeColor(e.target.value);
-  };
-
-  const handleAspectsChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const selectedAspect = e.target.value;
-    if (selectedAspect && Aspects[selectedAspect]) {
-      setAspect(e.target.value);
-      setDimensions(Aspects[selectedAspect]);
-    }
   };
 
   const handleFontSizeChange = (value: number) => {
@@ -73,13 +62,14 @@ export default function InputForm() {
       <div className="space-y-4 border border-neutral-300 p-4">
         <div>
           <TextArea
-            label="Text:"
-            placeholder="Add your text here"
+            label={inputs.compose}
+            placeholder={inputs.composePlaceholder}
             value={text}
+            name="compose"
             onChange={handleTextChange}
-            rows={3}
+            rows={compose.rows}
             resize={true}
-            maxLength={200}
+            maxLength={compose.maxLength}
             layout="col"
             size="md"
             textAreaStyles="border-2 border-neutral-300 focus:border-info"
@@ -88,7 +78,7 @@ export default function InputForm() {
         <div className="flex gap-6">
           <div>
             <ColorInput
-              label="Text"
+              label={inputs.textcolor}
               name="textcolor"
               value={foregroundColor}
               onChange={handleForegroundColorChange}
@@ -96,7 +86,7 @@ export default function InputForm() {
           </div>
           <div>
             <ColorInput
-              label="Stroke"
+              label={inputs.strokecolor}
               name="strokecolor"
               value={strokeColor}
               onChange={handleStrokeColorChange}
@@ -104,7 +94,7 @@ export default function InputForm() {
           </div>
           <div>
             <ColorInput
-              label="Background"
+              label={inputs.backgroundcolor}
               name="backgroundcolor"
               value={backgroundColor}
               onChange={handleBackgroundColorChange}
@@ -112,14 +102,11 @@ export default function InputForm() {
           </div>
         </div>
         <div>
-          <SelectAspect aspect={aspect} onChange={handleAspectsChange} />
-        </div>
-        <div>
           <SelectFontFamily onChange={handleFontFamilyChange} font={fontFamily} />
         </div>
         <div>
           <RangeInput
-            label="Font Size:"
+            label={inputs.fontsize}
             name="fontsize"
             min={fontsize.min}
             max={fontsize.max}
@@ -128,6 +115,7 @@ export default function InputForm() {
             rangeActive={Colors.rangeActive}
             rangeBackground={Colors.rangeBackground}
             thumbnailColor={Colors.thumbnailColor}
+            thumbnailActiveColor={Colors.thumbnailActiveColor}
             onChange={handleFontSizeChange}
             layout="row"
             hint={false}
@@ -135,7 +123,7 @@ export default function InputForm() {
         </div>
         <div>
           <RangeInput
-            label="Stroke Width:"
+            label={inputs.strokewidth}
             name="strokewidth"
             min={strokewidth.min}
             max={strokewidth.max}
@@ -144,10 +132,14 @@ export default function InputForm() {
             rangeActive={Colors.rangeActive}
             rangeBackground={Colors.rangeBackground}
             thumbnailColor={Colors.thumbnailColor}
+            thumbnailActiveColor={Colors.thumbnailActiveColor}
             onChange={handleStrokeWidthChange}
             layout="row"
             hint={false}
           />
+        </div>
+        <div>
+          <RadiosAspect />
         </div>
       </div>
     </form>

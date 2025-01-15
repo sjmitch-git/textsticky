@@ -6,8 +6,8 @@ export interface Dimensions {
 export type SetState<T> = React.Dispatch<React.SetStateAction<T>>;
 
 export const Aspects: Record<string, Dimensions> = {
-  landscape: { width: 1200, height: 630 },
   square: { width: 1080, height: 1080 },
+  landscape: { width: 1200, height: 630 },
   banner: { width: 1500, height: 500 },
 };
 

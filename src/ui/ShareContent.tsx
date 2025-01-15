@@ -7,6 +7,7 @@ import { Aspects } from "@/lib/types";
 import { useFormContext } from "@/lib/contexts/FormContext";
 import ShareActions from "@/ui/ShareActions";
 import { Loading, Alert } from "@/lib/fluid";
+import { Labels } from "@/lib/constants";
 
 const ShareContent = () => {
   const searchParams = useSearchParams();
@@ -120,7 +121,12 @@ const ShareContent = () => {
               <div
                 className={`flex justify-center absolute top-0 left-0 w-full aspect-[${dimensions.width}/${dimensions.height}]`}
               >
-                <Loading caption="Loading Image" loadingColor="info" layout="col" size="lg" />
+                <Loading
+                  caption={Labels.messages.loadingShare}
+                  loadingColor="info"
+                  layout="col"
+                  size="lg"
+                />
               </div>
             )}
             {imageData && <img id="image" src={imageData} alt="Shared Image" />}

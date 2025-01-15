@@ -9,3 +9,4 @@ export { Button } from "@smitch/fluid/lib/button";
 export { Pagination } from "@smitch/fluid/lib/pagination";
 export { Alert } from "@smitch/fluid/lib/alert";
 export { Toast } from "@smitch/fluid/lib/toast";
+export { RadioGroup } from "@smitch/fluid/lib/radiogroup";

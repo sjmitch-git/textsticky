@@ -1,6 +1,6 @@
 import { Button } from "@/lib/fluid";
 import { FaTrashAlt } from "react-icons/fa";
-
+import { Labels } from "@/lib/constants";
 import { DeleteButtonProps } from "@/lib/types";
 
 const DeleteButton = ({ onClick, id }: DeleteButtonProps) => {
@@ -14,10 +14,10 @@ const DeleteButton = ({ onClick, id }: DeleteButtonProps) => {
       hoverScale
       layout="circle"
       size="md"
-      title="Delete this image?"
+      title={Labels.DeleteButton}
     >
       <FaTrashAlt />
-      <span className="sr-only">Delete Item</span>
+      <span className="sr-only">{Labels.DeleteButton}</span>
     </Button>
   );
 };

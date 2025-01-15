@@ -3,6 +3,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useFormContext } from "@/lib/contexts/FormContext";
 import UploadButton from "@/ui/UploadButton";
+import { URLs } from "@/lib/constants";
 
 export default function PreviewCanvas() {
   const {
@@ -66,6 +67,18 @@ export default function PreviewCanvas() {
 
           ctx.fillText(line, x, lineY);
         });
+
+        const watermarkText = URLs.base.split("://")[1];
+        const watermarkFontSize = 24;
+        const watermarkX = canvas.width - 20;
+        const watermarkY = canvas.height - 10;
+
+        ctx.font = `${watermarkFontSize}px 'Arial`;
+        ctx.textAlign = "right";
+        ctx.textBaseline = "bottom";
+        ctx.fillStyle = foregroundColor;
+
+        ctx.fillText(watermarkText, watermarkX, watermarkY);
       }
     }
   }, [

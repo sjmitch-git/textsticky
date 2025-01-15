@@ -8,7 +8,7 @@ import PreviewCanvas from "@/ui/PreviewCanvas";
 export default function Home() {
   return (
     <article>
-      <div className="flex gap-8 flex-col md:flex-row items-center">
+      <div className="flex gap-8 flex-row items-center max-md:hidden">
         <Heading className="opacity-50">{Labels.titles.home}</Heading>
         <p className="mb-4">{Labels.descriptions.home}</p>
       </div>

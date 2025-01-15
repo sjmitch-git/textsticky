@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 
 import { Label, Select, Loading } from "@/lib/fluid";
 import { Aspects, SelectAspectProps } from "@/lib/types";
+import { Labels } from "@/lib/constants";
 
 const SelectAspect = ({ onChange, aspect }: SelectAspectProps) => {
   const [options, setOptions] = useState<string[]>([]);
@@ -18,7 +19,7 @@ const SelectAspect = ({ onChange, aspect }: SelectAspectProps) => {
     );
 
   return (
-    <Label label="Aspect:" size="md" layout="row">
+    <Label label={Labels.inputs.aspects} size="md" layout="row">
       <Select
         onChange={onChange}
         defaultValue={aspect}
