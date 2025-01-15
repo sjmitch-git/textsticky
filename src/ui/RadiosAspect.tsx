@@ -60,7 +60,7 @@ const RadiosAspect = () => {
               readOnly
             />
             <div
-              className={`flex items-center justify-center w-auto h-10 border-2 ${
+              className={`flex items-center justify-center w-auto h-6 md:h-8 lg:h-10 border-2 ${
                 selectedAspect === key ? " border-dark" : "border-neutral-300"
               } ${getAspectClass(key)}`}
               title={`${dimensions.width} x ${dimensions.height}`}
