@@ -44,7 +44,6 @@ const RadiosAspect = () => {
         {Object.entries(Aspects).map(([key, dimensions]) => (
           <label
             key={key}
-            role="radio"
             aria-checked={selectedAspect === key}
             className={`relative flex flex-col items-center cursor-pointer focus-visible:outline-info`}
             tabIndex={0}
@@ -61,10 +60,22 @@ const RadiosAspect = () => {
             />
             <div
               className={`flex items-center justify-center w-auto h-6 md:h-8 lg:h-10 border-2 ${
-                selectedAspect === key ? " border-dark" : "border-neutral-300"
+                selectedAspect === key
+                  ? " border-dark text-dark"
+                  : "border-neutral-300 text-neutral-300"
               } ${getAspectClass(key)}`}
               title={`${dimensions.width} x ${dimensions.height}`}
-            ></div>
+            >
+              <svg
+                className={`w-full h-auto ${getAspectClass(key)}`}
+                viewBox="0 0 100 100"
+                xmlns="http://www.w3.org/2000/svg"
+                preserveAspectRatio="none"
+              >
+                <line x1="0" y1="0" x2="100" y2="100" stroke="currentColor" strokeWidth="2" />
+                <line x1="0" y1="100" x2="100" y2="0" stroke="currentColor" strokeWidth="2" />
+              </svg>
+            </div>
           </label>
         ))}
       </div>
