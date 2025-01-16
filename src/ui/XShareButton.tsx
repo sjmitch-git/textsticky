@@ -12,7 +12,7 @@ const XShareButton = ({ text }: XShareButtonProps ) => {
   const handleShareClick = () => {
     const baseUrl = "https://x.com/intent/tweet";
     const params = new URLSearchParams({
-      text: encodeURIComponent(text.replace(/(\r\n|\n|\r)/g, " ")),
+      text: text.replace(/(\r\n|\n|\r)/g, " "),
       url: window.location.href,
     });
 
