@@ -69,13 +69,11 @@ const ShareContent = () => {
           case "strokeWidth":
             setStrokeWidth(Number(decodedValue));
             break;
-          case "align":
-            setAlign(decodedValue);
-            break;
         }
       });
 
-      if (!alignParam) setAlign(defaultState.align);
+      if (alignParam) setAlign(alignParam);
+      else setAlign(defaultState.align);
     }
 
     if (id) {
