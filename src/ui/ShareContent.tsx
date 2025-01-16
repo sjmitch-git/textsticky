@@ -72,7 +72,7 @@ const ShareContent = () => {
         }
       });
 
-      if (alignParam) setAlign(alignParam);
+      if (alignParam) setAlign(alignParam as CanvasTextAlign);
       else setAlign(defaultState.align);
     }
 
