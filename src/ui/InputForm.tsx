@@ -7,6 +7,7 @@ import RadiosAspect from "@/ui/RadiosAspect";
 import SelectFontFamily from "@/ui/SelectFontFamily";
 import ColorInput from "@/ui/ColorInput";
 import { TextArea, RangeInput } from "@/lib/fluid";
+import AlignButtons from "@/ui/AlignButtons";
 
 export default function InputForm() {
   const {
@@ -60,6 +61,10 @@ export default function InputForm() {
   return (
     <form className="order-1 md:order-none">
       <div className="space-y-4 border border-neutral-300 p-4">
+        <div className="relative">
+          <div className="absolute right-0 top-0">
+          <AlignButtons />
+        </div>
         <div>
           <TextArea
             label={inputs.compose}
@@ -74,6 +79,7 @@ export default function InputForm() {
             size="md"
             textAreaStyles="border-2 border-neutral-300 focus:border-info"
           />
+        </div>
         </div>
         <div className="flex gap-6">
           <div>

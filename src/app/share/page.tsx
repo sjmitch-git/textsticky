@@ -37,7 +37,7 @@ export default function Share() {
     <article>
       <div className="flex gap-8 flex-row items-center max-md:hidden">
         <Heading className="opacity-50">{Labels.titles.share}</Heading>
-        <p className="mb-4">{Labels.descriptions.share}</p>
+        <p className="mb-4 max-w-lg">{Labels.descriptions.share}</p>
       </div>
       <Suspense>
         <ShareContent />

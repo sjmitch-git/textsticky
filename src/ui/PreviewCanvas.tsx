@@ -16,6 +16,7 @@ export default function PreviewCanvas() {
     fontFamily,
     strokeWidth,
     strokeColor,
+    align,
   } = useFormContext();
 
   const formState = {
@@ -28,6 +29,7 @@ export default function PreviewCanvas() {
     fontFamily,
     strokeColor,
     strokeWidth,
+    align,
   };
 
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -47,7 +49,7 @@ export default function PreviewCanvas() {
 
         ctx.font = `${fontSize}px ${fontFamily}`;
         ctx.fillStyle = foregroundColor;
-        ctx.textAlign = "center";
+        ctx.textAlign = align;
         ctx.textBaseline = "middle";
 
         ctx.lineWidth = strokeWidth;
@@ -55,7 +57,9 @@ export default function PreviewCanvas() {
 
         const lines = text.split("\n");
         const lineHeight = fontSize * 1.2;
-        const x = canvas.width / 2;
+        let x = canvas.width / 2;
+        if (align === "left") x = 40;
+        if (align === "right") x = canvas.width - 40;
         const y = canvas.height / 2 - ((lines.length - 1) * lineHeight) / 2;
 
         lines.forEach((line, index) => {
@@ -93,6 +97,7 @@ export default function PreviewCanvas() {
     fontFamily,
     strokeWidth,
     strokeColor,
+    align,
   ]);
 
   return (

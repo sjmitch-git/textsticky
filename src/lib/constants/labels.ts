@@ -9,12 +9,12 @@ const en_labels = {
   descriptions: {
     home: MetaData.defaultDescription,
     share:
-      "View your generated content, download it, copy it to the clipboard, or share it directly via email.",
+      "View your generated content, download it, copy it to the clipboard, or share via social media or email.",
     saved: "View your saved images.",
   },
   inputs: {
-    compose: "Text:",
-    composePlaceholder: "Add your text here",
+    compose: "Compose:",
+    composePlaceholder: "Add your message here",
     textcolor: "Text",
     strokecolor: "Stroke",
     backgroundcolor: "Background",

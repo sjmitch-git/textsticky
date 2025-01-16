@@ -1,14 +1,14 @@
 "use client";
 
 import React from "react";
-import { FaTwitter } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import { Button } from "@/lib/fluid";
 
-interface TwitterShareButtonProps {
+interface XShareButtonProps {
   text: string;
 }
 
-const TwitterShareButton = ({ text }: TwitterShareButtonProps) => {
+const XShareButton = ({ text }: XShareButtonProps ) => {
   const handleShareClick = () => {
     const baseUrl = "https://x.com/intent/tweet";
     const params = new URLSearchParams({
@@ -30,13 +30,13 @@ const TwitterShareButton = ({ text }: TwitterShareButtonProps) => {
       hoverScale
       layout="circle"
       size="lg"
-      title="Share on Twitter"
-      className="focus:border-info focus-visible:outline-info bg-[#1DA1F2]"
+      title="Share on X"
+      className="focus:border-info focus-visible:outline-info bg-[#000000]"
     >
-      <FaTwitter />
-      <span className="sr-only">Share on Twitter</span>
+      <FaXTwitter />
+      <span className="sr-only">Share on X</span>
     </Button>
   );
 };
 
-export default TwitterShareButton;
+export default XShareButton;

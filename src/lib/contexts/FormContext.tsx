@@ -14,6 +14,7 @@ export const defaultState: FormState = {
   aspect: "square",
   strokeWidth: 0,
   strokeColor: "#f7f7f7",
+  align: "center",
 };
 
 const FormContext = createContext<FormContextProps | undefined>(undefined);
@@ -28,6 +29,7 @@ export const FormProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [aspect, setAspect] = useState(defaultState.aspect);
   const [strokeWidth, setStrokeWidth] = useState(defaultState.strokeWidth);
   const [strokeColor, setStrokeColor] = useState(defaultState.strokeColor);
+  const [align, setAlign] = useState(defaultState.align);
 
   return (
     <FormContext.Provider
@@ -50,6 +52,8 @@ export const FormProvider: React.FC<{ children: React.ReactNode }> = ({ children
         setStrokeWidth,
         strokeColor,
         setStrokeColor,
+        align,
+        setAlign,
       }}
     >
       {children}

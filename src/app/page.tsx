@@ -10,7 +10,7 @@ export default function Home() {
     <article>
       <div className="flex gap-8 flex-row items-center max-md:hidden">
         <Heading className="opacity-50">{Labels.titles.home}</Heading>
-        <p className="mb-4">{Labels.descriptions.home}</p>
+        <p className="mb-4 max-w-lg">{Labels.descriptions.home}</p>
       </div>
 
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">

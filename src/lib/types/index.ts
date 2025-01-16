@@ -21,6 +21,7 @@ export interface FormState {
   aspect: string;
   strokeWidth: number;
   strokeColor: string;
+  align: CanvasTextAlign;
 }
 
 export interface FormContextProps extends FormState {
@@ -33,6 +34,7 @@ export interface FormContextProps extends FormState {
   setAspect: SetState<string>;
   setStrokeWidth: SetState<number>;
   setStrokeColor: SetState<string>;
+  setAlign: SetState<CanvasTextAlign>;
 }
 
 export interface PreviewCanvasProps extends Omit<FormState, "aspect"> {

@@ -2,7 +2,7 @@ import DownloadButton from "@/ui/DownloadButton";
 import EditButton from "@/ui/EditButton";
 import CopyButton from "@/ui/CopyButton";
 import MailtoButton from "@/ui/MailtoButton";
-import TwitterShareButton from "@/ui/TwitterButton";
+import XShareButton from "@/ui/XShareButton";
 import LinkedInShareButton from "@/ui/LinkedinButton";
 import FacebookShareButton from "@/ui/FacebookButton";
 import SlackShareButton from '@/ui/SlackButton';
@@ -14,7 +14,7 @@ const ShareActions = ({ imageData, subject }: ShareActionsProps) => {
   return (
     <div className="flex flex-col gap-4 sticky bottom-4 items-center">
       <div className="flex md:flex-col md:fixed md:left-4 md:top-1/3 items-center gap-2">
-        <TwitterShareButton text={subject} />
+        <XShareButton text={subject} />
         <FacebookShareButton />
         <SlackShareButton text={subject} />
         <WhatsAppShareButton text={subject} />

@@ -4,7 +4,7 @@ import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
 import { Aspects } from "@/lib/types";
-import { useFormContext } from "@/lib/contexts/FormContext";
+import { useFormContext, defaultState } from "@/lib/contexts/FormContext";
 import ShareActions from "@/ui/ShareActions";
 import { Loading, Alert } from "@/lib/fluid";
 import { Labels } from "@/lib/constants";
@@ -26,6 +26,7 @@ const ShareContent = () => {
     setAspect,
     setStrokeColor,
     setStrokeWidth,
+    setAlign
   } = useFormContext();
 
   const formState = {
@@ -35,6 +36,7 @@ const ShareContent = () => {
 
   useEffect(() => {
     const id = searchParams.get("id");
+    const alignParam = searchParams.get("align");
     const entries = Array.from(searchParams.entries());
 
     if (entries.length) {
@@ -67,8 +69,13 @@ const ShareContent = () => {
           case "strokeWidth":
             setStrokeWidth(Number(decodedValue));
             break;
+          case "align":
+            setAlign(decodedValue);
+            break;
         }
       });
+
+      if (!alignParam) setAlign(defaultState.align);
     }
 
     if (id) {
@@ -103,6 +110,7 @@ const ShareContent = () => {
     setStrokeColor,
     setStrokeWidth,
     setText,
+    setAlign
   ]);
 
   return (
