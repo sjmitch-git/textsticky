@@ -5,7 +5,6 @@ import { useTranslations } from 'next-intl';
 import { Button } from "@/lib/fluid";
 import { FaEnvelope } from "react-icons/fa";
 import { MailImageButtonProps } from "@/lib/types";
-import { Labels } from "@/lib/constants";
 
 const MailtoButton = ({ imageUrl, subject }: MailImageButtonProps) => {
   const [mailSubject, setSubject] = useState("");

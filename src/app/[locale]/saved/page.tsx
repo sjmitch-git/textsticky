@@ -1,6 +1,5 @@
 import { Heading } from "@/lib/fluid";
 import SavedList from "@/ui/SavedList";
-import { Labels } from "@/lib/constants";
 
 import { useTranslations } from 'next-intl';
 

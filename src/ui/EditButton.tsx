@@ -2,7 +2,6 @@ import { useRouter } from "next/navigation";
 import { useTranslations } from 'next-intl';
 import { Button } from "@/lib/fluid";
 import { FaEdit } from "react-icons/fa";
-import { Labels } from "@/lib/constants";
 
 const EditButton = () => {
   const router = useRouter();

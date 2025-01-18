@@ -6,7 +6,6 @@ import { useTranslations } from 'next-intl';
 import { UploadButtonProps, SavedImageProps } from "@/lib/types";
 import { Button, Spinner } from "@/lib/fluid";
 import { FaUpload } from "react-icons/fa";
-import { Labels } from "@/lib/constants";
 
 export default function UploadButton({ canvasRef, formState }: UploadButtonProps) {
   const [uploading, setUploading] = useState(false);

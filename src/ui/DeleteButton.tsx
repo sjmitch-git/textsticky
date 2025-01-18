@@ -1,6 +1,5 @@
 import { Button } from "@/lib/fluid";
 import { FaTrashAlt } from "react-icons/fa";
-import { Labels } from "@/lib/constants";
 import { DeleteButtonProps } from "@/lib/types";
 import { useTranslations } from 'next-intl';
 

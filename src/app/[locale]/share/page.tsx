@@ -2,7 +2,7 @@ import React, { Suspense } from "react";
 import type { Metadata } from "next";
 import { Heading } from "@/lib/fluid";
 import ShareContent from "@/ui/ShareContent";
-import { MetaData, Labels } from "@/lib/constants";
+import { MetaData } from "@/lib/constants";
 import { Aspects } from "@/lib/types";
 import { useTranslations } from 'next-intl';
 

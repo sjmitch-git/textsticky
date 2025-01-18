@@ -4,7 +4,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 import { FaBookmark, FaEdit } from "react-icons/fa";
-import { Labels } from "@/lib/constants";
 
 interface NavProps {
   create: string,

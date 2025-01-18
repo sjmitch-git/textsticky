@@ -1,7 +1,6 @@
 import { useTranslations } from 'next-intl';
 
 import { Heading } from "@/lib/fluid";
-import { Labels } from "@/lib/constants";
 
 import InputForm from "@/ui/InputForm";
 import PreviewCanvas from "@/ui/PreviewCanvas";

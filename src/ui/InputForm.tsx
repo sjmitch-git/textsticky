@@ -3,7 +3,7 @@
 import React from "react";
 import { useTranslations } from 'next-intl';
 import { useFormContext } from "@/lib/contexts/FormContext";
-import { Colors, Inputs, Labels } from "@/lib/constants";
+import { Colors, Inputs } from "@/lib/constants";
 import RadiosAspect from "@/ui/RadiosAspect";
 import SelectFontFamily from "@/ui/SelectFontFamily";
 import ColorInput from "@/ui/ColorInput";
@@ -32,7 +32,6 @@ export default function InputForm() {
   const t = useTranslations('inputs');
 
   const { fontsize, strokewidth, compose } = Inputs;
-  const { inputs } = Labels;
 
   const handleTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setText(e.target.value);
