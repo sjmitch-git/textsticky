@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { useTranslations } from 'next-intl';
 import { useFormContext } from "@/lib/contexts/FormContext";
 import { Colors, Inputs, Labels } from "@/lib/constants";
 import RadiosAspect from "@/ui/RadiosAspect";
@@ -10,6 +11,7 @@ import { TextArea, RangeInput } from "@/lib/fluid";
 import AlignButtons from "@/ui/AlignButtons";
 
 export default function InputForm() {
+
   const {
     text,
     setText,
@@ -26,6 +28,8 @@ export default function InputForm() {
     strokeColor,
     setStrokeColor,
   } = useFormContext();
+
+  const t = useTranslations('inputs');
 
   const { fontsize, strokewidth, compose } = Inputs;
   const { inputs } = Labels;
@@ -67,8 +71,8 @@ export default function InputForm() {
         </div>
         <div>
           <TextArea
-            label={inputs.compose}
-            placeholder={inputs.composePlaceholder}
+            label={t('compose')}
+            placeholder={t('composePlaceholder')}
             value={text}
             name="compose"
             onChange={handleTextChange}
@@ -84,7 +88,7 @@ export default function InputForm() {
         <div className="flex gap-6">
           <div>
             <ColorInput
-              label={inputs.textcolor}
+              label={t('textcolor')}
               name="textcolor"
               value={foregroundColor}
               onChange={handleForegroundColorChange}
@@ -92,7 +96,7 @@ export default function InputForm() {
           </div>
           <div>
             <ColorInput
-              label={inputs.strokecolor}
+              label={t('strokecolor')}
               name="strokecolor"
               value={strokeColor}
               onChange={handleStrokeColorChange}
@@ -100,7 +104,7 @@ export default function InputForm() {
           </div>
           <div>
             <ColorInput
-              label={inputs.backgroundcolor}
+              label={t('backgroundcolor')}
               name="backgroundcolor"
               value={backgroundColor}
               onChange={handleBackgroundColorChange}
@@ -108,11 +112,11 @@ export default function InputForm() {
           </div>
         </div>
         <div>
-          <SelectFontFamily onChange={handleFontFamilyChange} font={fontFamily} />
+          <SelectFontFamily onChange={handleFontFamilyChange} font={fontFamily} label={t('fontfamily')} />
         </div>
         <div>
           <RangeInput
-            label={inputs.fontsize}
+            label={t('fontsize')}
             name="fontsize"
             min={fontsize.min}
             max={fontsize.max}
@@ -129,7 +133,7 @@ export default function InputForm() {
         </div>
         <div>
           <RangeInput
-            label={inputs.strokewidth}
+            label={t('strokewidth')}
             name="strokewidth"
             min={strokewidth.min}
             max={strokewidth.max}
@@ -145,7 +149,7 @@ export default function InputForm() {
           />
         </div>
         <div>
-          <RadiosAspect />
+          <RadiosAspect label={t('aspects')} />
         </div>
       </div>
     </form>

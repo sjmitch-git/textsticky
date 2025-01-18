@@ -24,7 +24,7 @@ const FacebookShareButton = () => {
       hoverScale
       layout="circle"
       size="lg"
-      title="Share on Facebook"
+      title="Facebook"
       className="focus:border-info focus-visible:outline-info bg-[#1877F2]"
     >
       <FaFacebook  />

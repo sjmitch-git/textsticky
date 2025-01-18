@@ -1,6 +1,9 @@
 import Nav from "@/ui/Nav";
+import { useTranslations } from "next-intl";
 
 export default function Header() {
+  const t = useTranslations("nav");
+
   return (
     <header className="bg-neutral-200 p-4 lg:px-0 shadow-sm">
       <div className="container mx-auto max-w-4xl flex justify-between items-center">
@@ -34,7 +37,7 @@ export default function Header() {
           />
         </picture>
 
-        <Nav />
+        <Nav create={t('create')} saved={t('saved')} />
       </div>
     </header>
   );

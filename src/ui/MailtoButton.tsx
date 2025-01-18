@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useTranslations } from 'next-intl';
 import { Button } from "@/lib/fluid";
 import { FaEnvelope } from "react-icons/fa";
 import { MailImageButtonProps } from "@/lib/types";
@@ -8,6 +9,7 @@ import { Labels } from "@/lib/constants";
 
 const MailtoButton = ({ imageUrl, subject }: MailImageButtonProps) => {
   const [mailSubject, setSubject] = useState("");
+  const t = useTranslations();
 
   useEffect(() => {
     setSubject(subject);
@@ -24,13 +26,12 @@ const MailtoButton = ({ imageUrl, subject }: MailImageButtonProps) => {
       }),
     ]);
 
-    const htmlBody = encodeURIComponent(Labels.messages.mailtoBody);
+    const htmlBody = encodeURIComponent(t('messages.mailtoBody'));
     const mailtoLink = `mailto:?subject=${encodedSubject}&body=${htmlBody}`;
     window.open(mailtoLink, "_blank");
   };
 
   return (
-    <>
       <Button
         onClick={handleMailClick}
         btnBackground="dark"
@@ -40,13 +41,12 @@ const MailtoButton = ({ imageUrl, subject }: MailImageButtonProps) => {
         hoverScale
         layout="rounded"
         size="lg"
-        title={Labels.MailtoButton}
+        title={t('buttons.MailtoButton')}
         className="focus:border-info focus-visible:outline-info"
       >
         <FaEnvelope />
-        <span className="hidden md:inline-block">{Labels.MailtoButton}</span>
+        <span className="hidden md:inline-block">{t('buttons.MailtoButton')}</span>
       </Button>
-    </>
   );
 };
 

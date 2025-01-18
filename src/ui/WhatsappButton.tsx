@@ -28,7 +28,7 @@ const WhatsAppShareButton  = ({ text }: WhatsAppShareButtonProps) => {
       hoverScale
       layout="circle"
       size="lg"
-      title="Share on WhatsApp"
+      title="WhatsApp"
       className="focus:border-info focus-visible:outline-info bg-[#25D366]"
     >
       <FaWhatsapp />

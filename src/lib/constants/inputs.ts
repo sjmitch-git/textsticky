@@ -1,7 +1,7 @@
 export const Inputs = {
   fontsize: {
     min: 18,
-    max: 500,
+    max: 600,
   },
   strokewidth: {
     min: 0,

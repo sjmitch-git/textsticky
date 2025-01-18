@@ -1,11 +1,11 @@
 "use client";
 
+import { useTranslations } from 'next-intl';
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { SavedImageProps } from "@/lib/types";
 import DeleteButton from "@/ui/DeleteButton";
 import { Pagination, Loading, Alert } from "@/lib/fluid";
-import { Labels } from "@/lib/constants";
 
 const SavedList = () => {
   const router = useRouter();
@@ -14,6 +14,7 @@ const SavedList = () => {
   const [range, setRange] = useState(1);
   const [savedImages, setSavedImages] = useState<SavedImageProps[]>([]);
   const [paginatedImages, setPaginatedImages] = useState<SavedImageProps[]>([]);
+  const t = useTranslations();
 
   useEffect(() => {
     const updateRange = () => {
@@ -110,7 +111,7 @@ const SavedList = () => {
                     alt={`Saved image ${index + 1}`}
                     className="w-full h-full object-cover cursor-pointer"
                     onClick={() => handleClick(image.blobId)}
-                    title={Labels.messages.savedImageTitle}
+                    title={t('messages.savedImageTitle')}
                   />
                   <figcaption className="absolute w-full bottom-0 flex p-1 justify-end">
                     <DeleteButton onClick={handleDelete} id={image.blobId} />
@@ -127,15 +128,14 @@ const SavedList = () => {
             results={savedImages.length}
             range={range}
             feedback={true}
-            feedbackLabel={Labels.feedbackLabel}
-            page={page}
+            feedbackLabel={t('buttons.feedbackLabel')}
             onChange={(newpage) => setPage(newpage)}
           />
         </>
       ) : loading ? (
         <div className={`flex justify-center w-full`}>
           <Loading
-            caption={Labels.messages.loadingSaved}
+            caption={t('messages.loadingSaved')}
             loadingColor="info"
             size="lg"
             layout="col"
@@ -145,7 +145,7 @@ const SavedList = () => {
         <div className={`flex justify-center w-full`}>
           <Alert
             status="info"
-            message={Labels.messages.savedNoImages}
+            message={t('messages.savedNoImages')}
             className="w-full max-w-xl"
           />
         </div>

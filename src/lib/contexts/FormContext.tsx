@@ -5,7 +5,7 @@ import React, { createContext, useContext, useState } from "react";
 import { FormState, FormContextProps } from "@/lib/types";
 
 export const defaultState: FormState = {
-  text: "Hello!",
+  text: "Hello",
   foregroundColor: "#374151",
   backgroundColor: "#d1d5db",
   dimensions: { width: 1080, height: 1080 },

@@ -1,0 +1,50 @@
+{
+  "titles": {
+    "home": "إنشاء",
+    "share": "مشاركة",
+    "saved": "الصور المحفوظة"
+  },
+  "descriptions": {
+    "home": "أنشئ ملاحظات شخصية تحتوي على نصوص وألوان وأحجام مخصصة. يجعل Sticky Blob من السهل تصميم ملاحظاتك ومشاركتها عبر الإنترنت مجانًا!",
+    "share": "اعرض المحتوى الذي تم إنشاؤه، نزّله، انسخه إلى الحافظة، أو شاركه عبر وسائل التواصل الاجتماعي أو البريد الإلكتروني.",
+    "saved": "اعرض الصور التي قمت بحفظها."
+  },
+  "inputs": {
+    "compose": "الرسالة:",
+    "composePlaceholder": "أضف رسالتك هنا",
+    "textcolor": "لون النص",
+    "strokecolor": "لون الحدود",
+    "backgroundcolor": "لون الخلفية",
+    "fontsize": "حجم النص:",
+    "strokewidth": "عرض الحدود:",
+    "fontfamily": "نوع الخط:",
+    "aspects": "النسبة:"
+  },
+  "buttons": {
+    "EditButton": "تعديل",
+    "DownloadButton": "تنزيل",
+    "CopyButton": "نسخ",
+    "MailtoButton": "إرسال",
+    "UploadButton": "حفظ",
+    "DeleteButton": "حذف",
+    "feedbackLabel": "الصفحة:",
+    "alignleftButton": "محاذاة إلى اليسار",
+    "aligncenterButton": "محاذاة إلى المنتصف",
+    "alignrightButton": "محاذاة إلى اليمين"
+  },
+  "messages": {
+    "copySuccess": "تم نسخ الصورة إلى الحافظة!",
+    "copyError": "فشل في نسخ الصورة.",
+    "downloadSuccess": "تم تنزيل الصورة!",
+    "downloadError": "فشل في تنزيل الصورة.",
+    "mailtoBody": "قم بلصق الصورة هنا. Ctrl + V (Windows) أو Command (⌘) + V (macOS).",
+    "loadingShare": "جاري تحميل الصورة...",
+    "loadingSaved": "جاري تحميل الصور...",
+    "savedNoImages": "لا توجد صور محفوظة.",
+    "savedImageTitle": "انقر لمشاركة هذه الصورة."
+  },
+  "nav": {
+    "create": "إنشاء",
+    "saved": "محفوظ"
+  }
+}

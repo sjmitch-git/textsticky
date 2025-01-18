@@ -24,7 +24,7 @@ const LinkedInShareButton = () => {
       hoverScale
       layout="circle"
       size="lg"
-      title="Share on LinkedIn"
+      title="LinkedIn"
       className="focus:border-info focus-visible:outline-info bg-[#0077B5]"
     >
       <FaLinkedin />

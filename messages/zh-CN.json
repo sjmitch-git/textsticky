@@ -1,0 +1,50 @@
+{
+  "titles": {
+    "home": "创建",
+    "share": "分享",
+    "saved": "已保存的图片"
+  },
+  "descriptions": {
+    "home": "创建带有自定义文本、颜色和大小的个性化便签。Sticky Blob 让您轻松免费在线设计和分享您的便签！",
+    "share": "查看生成的内容，下载，复制到剪贴板，或通过社交媒体或电子邮件分享。",
+    "saved": "查看您保存的图片。"
+  },
+  "inputs": {
+    "compose": "内容：",
+    "composePlaceholder": "在此添加您的内容",
+    "textcolor": "文字颜色",
+    "strokecolor": "边框颜色",
+    "backgroundcolor": "背景颜色",
+    "fontsize": "文字大小：",
+    "strokewidth": "边框宽度：",
+    "fontfamily": "字体样式：",
+    "aspects": "比例："
+  },
+  "buttons": {
+    "EditButton": "编辑",
+    "DownloadButton": "下载",
+    "CopyButton": "复制",
+    "MailtoButton": "发送",
+    "UploadButton": "保存",
+    "DeleteButton": "删除",
+    "feedbackLabel": "页面：",
+    "alignleftButton": "左对齐",
+    "aligncenterButton": "居中对齐",
+    "alignrightButton": "右对齐"
+  },
+  "messages": {
+    "copySuccess": "图片已复制到剪贴板！",
+    "copyError": "复制图片失败。",
+    "downloadSuccess": "图片已下载！",
+    "downloadError": "下载图片失败。",
+    "mailtoBody": "将您的图片粘贴到这里。Ctrl + V (Windows) 或 Command (⌘) + V (macOS)",
+    "loadingShare": "正在加载图片...",
+    "loadingSaved": "正在加载图片...",
+    "savedNoImages": "您没有保存的图片。",
+    "savedImageTitle": "点击分享此图片。"
+  },
+  "nav": {
+    "create": "创建",
+    "saved": "已保存"
+  }
+}

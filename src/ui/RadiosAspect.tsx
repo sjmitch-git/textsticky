@@ -1,11 +1,10 @@
 import React from "react";
 
 import { useFormContext } from "@/lib/contexts/FormContext";
-import { Labels } from "@/lib/constants";
 import { Label } from "@/lib/fluid";
 import { Aspects } from "@/lib/types";
 
-const RadiosAspect = () => {
+const RadiosAspect = ({label}: string) => {
   const { setDimensions, aspect, setAspect } = useFormContext();
   const [selectedAspect, setSelectedAspect] = React.useState<string>(aspect);
 
@@ -39,7 +38,7 @@ const RadiosAspect = () => {
   };
 
   return (
-    <Label label={Labels.inputs.aspects} size="md" layout="row" className="items-center">
+    <Label label={label} size="md" layout="row" className="items-center">
       <div className="flex justify-between">
         {Object.entries(Aspects).map(([key, dimensions]) => (
           <label

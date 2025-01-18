@@ -1,0 +1,50 @@
+{
+  "titles": {
+    "home": "बनाएं",
+    "share": "साझा करें",
+    "saved": "सहेजी गई छवियां"
+  },
+  "descriptions": {
+    "home": "कस्टम टेक्स्ट, रंग और आकार के साथ व्यक्तिगत नोट्स बनाएं। Sticky Blob आपको मुफ्त में अपनी नोट्स डिज़ाइन और साझा करने में मदद करता है!",
+    "share": "अपना बनाया हुआ कंटेंट देखें, डाउनलोड करें, क्लिपबोर्ड में कॉपी करें, या सोशल मीडिया या ईमेल के माध्यम से साझा करें।",
+    "saved": "अपनी सहेजी गई छवियां देखें।"
+  },
+  "inputs": {
+    "compose": "संदेश:",
+    "composePlaceholder": "अपना संदेश यहां लिखें",
+    "textcolor": "पाठ का रंग",
+    "strokecolor": "रेखांकन का रंग",
+    "backgroundcolor": "पृष्ठभूमि का रंग",
+    "fontsize": "पाठ का आकार:",
+    "strokewidth": "रेखांकन की मोटाई:",
+    "fontfamily": "फ़ॉन्ट शैली:",
+    "aspects": "आस्पेक्ट:"
+  },
+  "buttons": {
+    "EditButton": "संपादित करें",
+    "DownloadButton": "डाउनलोड करें",
+    "CopyButton": "कॉपी करें",
+    "MailtoButton": "भेजें",
+    "UploadButton": "सहेजें",
+    "DeleteButton": "मिटाएं",
+    "feedbackLabel": "पृष्ठ:",
+    "alignleftButton": "बाएं संरेखित करें",
+    "aligncenterButton": "केंद्र में संरेखित करें",
+    "alignrightButton": "दाएं संरेखित करें"
+  },
+  "messages": {
+    "copySuccess": "छवि को क्लिपबोर्ड पर कॉपी कर दिया गया है!",
+    "copyError": "छवि को कॉपी करने में विफल।",
+    "downloadSuccess": "छवि डाउनलोड हो गई है!",
+    "downloadError": "छवि डाउनलोड करने में विफल।",
+    "mailtoBody": "अपनी छवि यहां पेस्ट करें। Ctrl + V (Windows) या Command (⌘) + V (macOS)।",
+    "loadingShare": "छवि लोड हो रही है...",
+    "loadingSaved": "छवियां लोड हो रही हैं...",
+    "savedNoImages": "आपके पास कोई सहेजी गई छवियां नहीं हैं।",
+    "savedImageTitle": "इस छवि को साझा करने के लिए क्लिक करें।"
+  },
+  "nav": {
+    "create": "बनाएं",
+    "saved": "सहेजा हुआ"
+  }
+}

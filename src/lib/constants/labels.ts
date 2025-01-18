@@ -30,6 +30,9 @@ const en_labels = {
   UploadButton: "Save",
   DeleteButton: "Delete Item",
   feedbackLabel: "Page:",
+  alignleftButton: "Align Left",
+  aligncenterButton: "Align Centre",
+  alignrightButton: "Align Right",
   messages: {
     copySuccess: "Image copied to clipboard!",
     copyError: "Failed to copy image.",

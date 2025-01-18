@@ -4,6 +4,7 @@ import { Heading } from "@/lib/fluid";
 import ShareContent from "@/ui/ShareContent";
 import { MetaData, Labels } from "@/lib/constants";
 import { Aspects } from "@/lib/types";
+import { useTranslations } from 'next-intl';
 
 type Props = {
   searchParams: Promise<{ [key: string]: string }>;
@@ -33,11 +34,13 @@ export async function generateMetadata({ searchParams }: Props): Promise<Metadat
 }
 
 export default function Share() {
+  const t = useTranslations();
+
   return (
     <article>
       <div className="flex gap-8 flex-row items-center max-md:hidden">
-        <Heading className="opacity-50">{Labels.titles.share}</Heading>
-        <p className="mb-4 max-w-lg">{Labels.descriptions.share}</p>
+        <Heading className="opacity-50">{t('titles.share')}</Heading>
+        <p className="mb-4 max-w-lg">{t('descriptions.share')}</p>
       </div>
       <Suspense>
         <ShareContent />

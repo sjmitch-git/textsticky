@@ -30,7 +30,7 @@ const XShareButton = ({ text }: XShareButtonProps ) => {
       hoverScale
       layout="circle"
       size="lg"
-      title="Share on X"
+      title="X"
       className="focus:border-info focus-visible:outline-info bg-[#000000]"
     >
       <FaXTwitter />

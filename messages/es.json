@@ -1,0 +1,50 @@
+{
+  "titles": {
+    "home": "Crear",
+    "share": "Compartir",
+    "saved": "Imágenes guardadas"
+  },
+  "descriptions": {
+    "home": "Crea notas personalizadas con texto, colores y tamaños. Sticky Blob facilita la creación y el intercambio de tus notas en línea de forma gratuita.",
+    "share": "Mira tu contenido generado, descárgalo, cópialo al portapapeles o compártelo en redes sociales o por correo electrónico.",
+    "saved": "Visualiza tus imágenes guardadas."
+  },
+  "inputs": {
+    "compose": "Mensaje:",
+    "composePlaceholder": "Añade tu mensaje aquí",
+    "textcolor": "Color del texto",
+    "strokecolor": "Color del borde",
+    "backgroundcolor": "Color de fondo",
+    "fontsize": "Tamaño del texto:",
+    "strokewidth": "Grosor del borde:",
+    "fontfamily": "Estilo de fuente:",
+    "aspects": "Aspecto:"
+  },
+  "buttons": {
+    "EditButton": "Editar",
+    "DownloadButton": "Descargar",
+    "CopyButton": "Copiar",
+    "MailtoButton": "Enviar",
+    "UploadButton": "Guardar",
+    "DeleteButton": "Eliminar",
+    "feedbackLabel": "Página:",
+    "alignleftButton": "Alinear a la izquierda",
+    "aligncenterButton": "Alinear al centro",
+    "alignrightButton": "Alinear a la derecha"
+  },
+  "messages": {
+    "copySuccess": "¡Imagen copiada al portapapeles!",
+    "copyError": "Error al copiar la imagen.",
+    "downloadSuccess": "¡Imagen descargada!",
+    "downloadError": "Error al descargar la imagen.",
+    "mailtoBody": "Pega tu imagen aquí. Ctrl + V (Windows) o Command (⌘) + V (macOS).",
+    "loadingShare": "Cargando imagen...",
+    "loadingSaved": "Cargando imágenes...",
+    "savedNoImages": "No tienes imágenes guardadas.",
+    "savedImageTitle": "Haz clic para compartir esta imagen."
+  },
+  "nav": {
+    "create": "Crear",
+    "saved": "Guardado"
+  }
+}

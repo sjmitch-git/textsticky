@@ -2,8 +2,11 @@ import { Button } from "@/lib/fluid";
 import { FaTrashAlt } from "react-icons/fa";
 import { Labels } from "@/lib/constants";
 import { DeleteButtonProps } from "@/lib/types";
+import { useTranslations } from 'next-intl';
 
 const DeleteButton = ({ onClick, id }: DeleteButtonProps) => {
+   const t = useTranslations('buttons');
+
   return (
     <Button
       onClick={() => onClick(id)}
@@ -14,10 +17,10 @@ const DeleteButton = ({ onClick, id }: DeleteButtonProps) => {
       hoverScale
       layout="circle"
       size="md"
-      title={Labels.DeleteButton}
+      title={t('DeleteButton')}
     >
       <FaTrashAlt />
-      <span className="sr-only">{Labels.DeleteButton}</span>
+      <span className="sr-only">{t('DeleteButton')}</span>
     </Button>
   );
 };

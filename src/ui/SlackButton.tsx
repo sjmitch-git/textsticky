@@ -29,7 +29,7 @@ const SlackShareButton = ({ text }: SlackShareButtonProps)  => {
       hoverScale
       layout="circle"
       size="lg"
-      title="Share on Slack"
+      title="Slack"
       className="focus:border-info focus-visible:outline-info bg-[#4A154B]"
     >
       <FaSlack  />

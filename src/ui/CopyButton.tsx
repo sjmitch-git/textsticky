@@ -1,16 +1,16 @@
 "use client";
 
 import React, { useState } from "react";
-
+import { useTranslations } from 'next-intl';
 import { Button, Toast } from "@/lib/fluid";
 import { FaCopy } from "react-icons/fa";
 import { CopyButtonProps } from "@/lib/types";
-import { Labels } from "@/lib/constants";
 
 const CopyButton = ({ imageData }: CopyButtonProps) => {
   const [copyMessage, setCopyMessage] = useState("");
   const [open, setOpen] = useState(false);
   const [toastBackground, setToastBackground] = useState<"success" | "danger">("success");
+  const t = useTranslations();
 
   const handleCopy = async () => {
     try {
@@ -25,12 +25,12 @@ const CopyButton = ({ imageData }: CopyButtonProps) => {
         }),
       ]);
 
-      setCopyMessage(Labels.messages.copySuccess);
+      setCopyMessage(t('messages.copySuccess'));
       setToastBackground("success");
       setOpen(true);
     } catch (error) {
       console.error("Error:", error);
-      setCopyMessage(Labels.messages.copyError);
+      setCopyMessage(t('messages.copyError'));
       setToastBackground("danger");
       setOpen(true);
     }
@@ -47,11 +47,11 @@ const CopyButton = ({ imageData }: CopyButtonProps) => {
         hoverScale
         layout="rounded"
         size="lg"
-        title={Labels.CopyButton}
+        title={t('buttons.CopyButton')}
         className="focus:border-info focus-visible:outline-info"
       >
         <FaCopy />
-        <span className="hidden md:inline-block">{Labels.CopyButton}</span>
+        <span className="hidden md:inline-block">{t('buttons.CopyButton')}</span>
       </Button>
       <Toast
         open={open}

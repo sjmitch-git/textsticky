@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useRef, useState, useEffect } from "react";
+import { useTranslations } from 'next-intl';
 import { UploadButtonProps, SavedImageProps } from "@/lib/types";
 import { Button, Spinner } from "@/lib/fluid";
 import { FaUpload } from "react-icons/fa";
@@ -12,6 +13,7 @@ export default function UploadButton({ canvasRef, formState }: UploadButtonProps
   const [, setSavedImages] = useState<SavedImageProps[]>([]);
   const router = useRouter();
   const hasUploaded = useRef(false);
+  const t = useTranslations('buttons');
 
   useEffect(() => {
     const imagesFromStorage = JSON.parse(localStorage.getItem("savedImages") || "[]");
@@ -87,11 +89,11 @@ export default function UploadButton({ canvasRef, formState }: UploadButtonProps
       hoverScale
       layout="rounded"
       size="lg"
-      disabled={uploading}
+      disabled={uploading || !formState.text}
       className="focus:border-info focus-visible:outline-info"
     >
       {uploading ? <Spinner width={24} /> : <FaUpload />}
-      <span>{Labels.UploadButton}</span>
+      <span>{t('UploadButton')}</span>
     </Button>
   );
 }
