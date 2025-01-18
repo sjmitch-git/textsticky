@@ -11,9 +11,6 @@ StickyBlob is a versatile web application that allows users to create visually e
 ## Live Demo
 Experience StickyBlob live at: [StickyBlob Live Site](https://stickyblob.vercel.app/)
 
-## Source Code
-Explore the full project on GitHub: [StickyBlob GitHub Repo](https://github.com/sjmitch-git/textsticky)
-
 ## Tech Stack
 StickyBlob is built with the following technologies:
 - **Frontend:** Next.js, React, HTML5, CSS3
