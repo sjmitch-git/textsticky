@@ -1,12 +1,13 @@
 import React from "react";
-
+import { useTranslations } from 'next-intl';
 import { useFormContext } from "@/lib/contexts/FormContext";
 import { Label } from "@/lib/fluid";
 import { Aspects } from "@/lib/types";
 
-const RadiosAspect = ({label}: string) => {
+const RadiosAspect = () => {
   const { setDimensions, aspect, setAspect } = useFormContext();
   const [selectedAspect, setSelectedAspect] = React.useState<string>(aspect);
+   const t = useTranslations('inputs');
 
   const getAspectClass = (aspect: string) => {
     switch (aspect) {
@@ -38,7 +39,7 @@ const RadiosAspect = ({label}: string) => {
   };
 
   return (
-    <Label label={label} size="md" layout="row" className="items-center">
+    <Label label={t('aspects')} size="md" layout="row" className="items-center">
       <div className="flex justify-between">
         {Object.entries(Aspects).map(([key, dimensions]) => (
           <label

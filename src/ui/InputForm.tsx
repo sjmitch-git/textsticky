@@ -148,7 +148,7 @@ export default function InputForm() {
           />
         </div>
         <div>
-          <RadiosAspect label={t('aspects')} />
+          <RadiosAspect />
         </div>
       </div>
     </form>
