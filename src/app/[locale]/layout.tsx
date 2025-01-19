@@ -31,7 +31,7 @@ export default async function RootLayout({ children, params }: Props) {
 
   return (
     <html lang={locale} dir={direction}>
-      <GoogleAnalytics gaId={process.env.GTAG} />
+      <GoogleAnalytics gaId={process.env.GTAG || ''} />
       <body className="flex flex-col min-h-screen">
         <NextIntlClientProvider messages={messages}>
           <Header />
