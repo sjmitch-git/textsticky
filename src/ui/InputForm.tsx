@@ -111,7 +111,7 @@ export default function InputForm() {
           </div>
         </div>
         <div>
-          <SelectFontFamily onChange={handleFontFamilyChange} font={fontFamily} label={t('fontfamily')} />
+          <SelectFontFamily onChange={handleFontFamilyChange} font={fontFamily} />
         </div>
         <div>
           <RangeInput

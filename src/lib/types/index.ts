@@ -78,7 +78,6 @@ export interface SelectAspectProps {
 
 export interface SelectFontFamilyProps {
   font: string;
-  label: string;
   onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
 }
 
