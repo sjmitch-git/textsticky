@@ -128,6 +128,7 @@ const SavedList = () => {
             results={savedImages.length}
             range={range}
             feedback={true}
+            page={page}
             feedbackLabel={t('buttons.feedbackLabel')}
             onChange={(newpage) => setPage(newpage)}
           />
