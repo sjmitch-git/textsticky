@@ -25,7 +25,6 @@ export default function AlignButtons() {
         hoverScale
         layout="rounded"
         size="sm"
-        name='alignleft'
       >
         <FaAlignLeft />
         <span className='sr-only'>{t('alignleftButton')}</span>
