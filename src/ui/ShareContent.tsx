@@ -2,7 +2,7 @@
 
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
-
+import { useTranslations } from 'next-intl';
 import { Aspects } from "@/lib/types";
 import { useFormContext, defaultState } from "@/lib/contexts/FormContext";
 import ShareActions from "@/ui/ShareActions";
@@ -109,6 +109,8 @@ const ShareContent = () => {
     setText,
     setAlign
   ]);
+
+  const t = useTranslations('inputs');
 
   return (
     <>
