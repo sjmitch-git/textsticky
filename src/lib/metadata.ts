@@ -5,13 +5,16 @@ export async function generateMetadata(locale: string): Promise<Metadata> {
   const messages = (await import(`../../messages/${locale}.json`)).default;
 
   return {
-    title: messages.titles.home,
+    title: `${MetaData.defaultSitename} | ${messages.titles.home}`,
     description: messages.descriptions.home,
     keywords: MetaData.defaultKeywords,
     generator: 'Next.js',
     manifest: '/manifest.json',
     authors: [{ name: MetaData.defaultAuthor, url: MetaData.defaultAuthorUrl }],
     metadataBase: new URL(URLs.base),
+    alternates: {
+      canonical: new URL(URLs.base),
+    },
     verification: {
       google: process.env.GOOGLE_SITE_VERIFICATION,
     },

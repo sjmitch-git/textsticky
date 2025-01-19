@@ -12,7 +12,7 @@ const SelectFontFamily = ({ onChange, font, label }: SelectFontFamilyProps) => {
   }, []);
 
   return (
-    <Label label={label} size="md" layout="row">
+    <Label label={label} size="md" layout="row" suppressHydrationWarning>
       {options.length !== 0 ? (
         <Select
           onChange={onChange}
@@ -22,14 +22,14 @@ const SelectFontFamily = ({ onChange, font, label }: SelectFontFamilyProps) => {
           className="w-full border-neutral-300 focus:border-info"
           style={{ fontFamily: font }}
         >
-          {options.map((font) => (
+          {options.length !== 0 && {options.map((font) => (
             <option key={font} value={font} style={{ fontFamily: font }}>
               {font}
             </option>
-          ))}
+          ))}}
         </Select>
       ) : (
-        <div className="flex justify-start items-center border-neutral-300 p-2">
+        <div className="flex justify-start items-center border-neutral-300 p-2 w-full">
           <Loading loadingColor="info" size="sm" />
         </div>
       )}

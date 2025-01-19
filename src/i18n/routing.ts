@@ -5,14 +5,7 @@ export const routing = defineRouting({
   locales: ['en', 'fr', 'es', 'ar', 'zh-CN', 'hi'],
   defaultLocale: 'en',
   pathnames: {
-    '/': {
-      en: '/',
-      fr: '/accueil',
-      es: '/inicio',
-      ar: '/الرئيسية',
-      'zh-CN': '/首页',
-      hi: '/मुख्य',
-    },
+    '/': '/',
     '/pathnames': {
       en: '/pathnames',
       fr: '/noms-de-chemin',

@@ -15,7 +15,7 @@ export default function AlignButtons() {
   };
 
   return (
-    <div className="flex space-x-2">
+    <div className="flex space-x-2" suppressHydrationWarning>
       <Button
         className={`focus:border-info focus-visible:outline-info ${align === "left" ? "bg-info" : "bg-dark"}`}
         onClick={() => handleAlignmentChange("left")}

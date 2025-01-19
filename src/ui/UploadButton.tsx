@@ -89,7 +89,7 @@ export default function UploadButton({ canvasRef, formState }: UploadButtonProps
       layout="rounded"
       size="lg"
       disabled={uploading || !formState.text}
-      className="focus:border-info focus-visible:outline-info"
+      className="focus:border-info focus-visible:outline-info disabled:hover:scale-100"
     >
       {uploading ? <Spinner width={24} /> : <FaUpload />}
       <span>{t('UploadButton')}</span>

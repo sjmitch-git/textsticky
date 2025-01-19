@@ -128,7 +128,7 @@ const ShareContent = () => {
                 className={`flex justify-center absolute top-0 left-0 w-full aspect-[${dimensions.width}/${dimensions.height}]`}
               >
                 <Loading
-                  caption={Labels.messages.loadingShare}
+                  caption={t('messages.loadingShare')}
                   loadingColor="info"
                   layout="col"
                   size="lg"
