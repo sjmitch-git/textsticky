@@ -7,7 +7,6 @@ import { Aspects } from "@/lib/types";
 import { useFormContext, defaultState } from "@/lib/contexts/FormContext";
 import ShareActions from "@/ui/ShareActions";
 import { Loading, Alert } from "@/lib/fluid";
-import { Labels } from "@/lib/constants";
 
 const ShareContent = () => {
   const searchParams = useSearchParams();
