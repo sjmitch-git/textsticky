@@ -1,0 +1,57 @@
+{
+  "titles": {
+    "home": "作成",
+    "share": "共有",
+    "saved": "保存した画像"
+  },
+  "descriptions": {
+    "home": "カスタムテキスト、色、サイズでパーソナライズされた付箋を作成します。Sticky Blobを使えば、簡単にデザインしてオンラインで無料で共有できます！",
+    "share": "生成したコンテンツを表示、ダウンロード、クリップボードにコピー、またはソーシャルメディアやメールで共有します。",
+    "saved": "保存した画像を表示します。"
+  },
+  "inputs": {
+    "compose": "作成：",
+    "composePlaceholder": "ここにメッセージを追加してください",
+    "textcolor": "テキスト",
+    "strokecolor": "ストローク",
+    "backgroundcolor": "背景",
+    "fontsize": "フォントサイズ：",
+    "strokewidth": "ストローク幅：",
+    "fontfamily": "フォントファミリー：",
+    "aspects": "アスペクト比："
+  },
+  "buttons": {
+    "EditButton": "編集",
+    "DownloadButton": "ダウンロード",
+    "CopyButton": "コピー",
+    "MailtoButton": "送信",
+    "UploadButton": "保存",
+    "DeleteButton": "項目を削除",
+    "alignleftButton": "左揃え",
+    "aligncenterButton": "中央揃え",
+    "alignrightButton": "右揃え"
+  },
+  "messages": {
+    "copySuccess": "画像がクリップボードにコピーされました！",
+    "copyError": "画像のコピーに失敗しました。",
+    "downloadSuccess": "画像がダウンロードされました！",
+    "downloadError": "画像のダウンロードに失敗しました。",
+    "mailtoBody": "ここに画像を貼り付けてください。Ctrl + V (Windows) または Command (⌘) + V (macOS)",
+    "loadingShare": "画像を読み込み中",
+    "loadingSaved": "画像を読み込み中",
+    "savedNoImages": "保存した画像がありません",
+    "savedImageTitle": "この画像を共有するにはクリックしてください"
+  },
+  "nav": {
+    "create": "作成",
+    "saved": "保存済み"
+  },
+  "pagination": {
+    "feedbackLabel": "ページ：",
+    "feedbackSeparator": "の",
+    "firstPageLabel": "最初のページ",
+    "lastPageLabel": "最後のページ",
+    "prevPageLabel": "前のページ",
+    "nextPageLabel": "次のページ"
+  }
+}

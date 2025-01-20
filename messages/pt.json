@@ -1,0 +1,57 @@
+{
+  "titles": {
+    "home": "Criar",
+    "share": "Compartilhar",
+    "saved": "Imagens Salvas"
+  },
+  "descriptions": {
+    "home": "Crie notas adesivas personalizadas com texto, cores e tamanhos personalizados. O Sticky Blob facilita o design e o compartilhamento de suas notas online gratuitamente!",
+    "share": "Visualize seu conteúdo gerado, faça o download, copie para a área de transferência ou compartilhe via redes sociais ou e-mail.",
+    "saved": "Visualize suas imagens salvas."
+  },
+  "inputs": {
+    "compose": "Compor:",
+    "composePlaceholder": "Adicione sua mensagem aqui",
+    "textcolor": "Texto",
+    "strokecolor": "Traço",
+    "backgroundcolor": "Fundo",
+    "fontsize": "Tamanho da Fonte:",
+    "strokewidth": "Espessura do Traço:",
+    "fontfamily": "Família da Fonte:",
+    "aspects": "Proporção:"
+  },
+  "buttons": {
+    "EditButton": "Editar",
+    "DownloadButton": "Baixar",
+    "CopyButton": "Copiar",
+    "MailtoButton": "Enviar",
+    "UploadButton": "Salvar",
+    "DeleteButton": "Excluir Item",
+    "alignleftButton": "Alinhar à Esquerda",
+    "aligncenterButton": "Alinhar ao Centro",
+    "alignrightButton": "Alinhar à Direita"
+  },
+  "messages": {
+    "copySuccess": "Imagem copiada para a área de transferência!",
+    "copyError": "Falha ao copiar a imagem.",
+    "downloadSuccess": "Imagem baixada!",
+    "downloadError": "Falha ao baixar a imagem.",
+    "mailtoBody": "Cole sua imagem aqui. Ctrl + V (Windows) ou Command (⌘) + V (macOS)",
+    "loadingShare": "Carregando Imagem",
+    "loadingSaved": "Carregando Imagens",
+    "savedNoImages": "Você não tem imagens salvas",
+    "savedImageTitle": "Clique para compartilhar esta imagem"
+  },
+  "nav": {
+    "create": "Criar",
+    "saved": "Salvos"
+  },
+  "pagination": {
+    "feedbackLabel": "Página:",
+    "feedbackSeparator": "de",
+    "firstPageLabel": "Primeira Página",
+    "lastPageLabel": "Última Página",
+    "prevPageLabel": "Página Anterior",
+    "nextPageLabel": "Próxima Página"
+  }
+}

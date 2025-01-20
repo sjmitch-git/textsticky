@@ -5,7 +5,7 @@ export default function Header() {
   const t = useTranslations("nav");
 
   return (
-    <header className="bg-neutral-200 p-4 lg:px-0 shadow-sm">
+    <header className="bg-neutral-200 px-2 py-4 md:px-4 lg:px-0 shadow-sm">
       <div className="container mx-auto max-w-4xl flex justify-between items-center">
         <picture>
           <source
@@ -37,7 +37,7 @@ export default function Header() {
           />
         </picture>
 
-        <Nav create={t('create')} saved={t('saved')} />
+        <Nav create={t("create")} saved={t("saved")} />
       </div>
     </header>
   );

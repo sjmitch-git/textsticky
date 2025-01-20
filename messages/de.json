@@ -1,0 +1,57 @@
+{
+  "titles": {
+    "home": "Erstellen",
+    "share": "Teilen",
+    "saved": "Gespeicherte Bilder"
+  },
+  "descriptions": {
+    "home": "Erstellen Sie personalisierte Haftnotizen mit individuellem Text, Farben und Größen. Sticky Blob macht es einfach, Ihre Notizen kostenlos online zu gestalten und zu teilen!",
+    "share": "Sehen Sie sich Ihre generierten Inhalte an, laden Sie sie herunter, kopieren Sie sie in die Zwischenablage oder teilen Sie sie über soziale Medien oder E-Mail.",
+    "saved": "Sehen Sie sich Ihre gespeicherten Bilder an."
+  },
+  "inputs": {
+    "compose": "Verfassen:",
+    "composePlaceholder": "Fügen Sie hier Ihre Nachricht ein",
+    "textcolor": "Textfarbe",
+    "strokecolor": "Konturfarbe",
+    "backgroundcolor": "Hintergrundfarbe",
+    "fontsize": "Schriftgröße:",
+    "strokewidth": "Konturstärke:",
+    "fontfamily": "Schriftart:",
+    "aspects": "Seitenverhältnis:"
+  },
+  "buttons": {
+    "EditButton": "Bearbeiten",
+    "DownloadButton": "Herunterladen",
+    "CopyButton": "Kopieren",
+    "MailtoButton": "Senden",
+    "UploadButton": "Speichern",
+    "DeleteButton": "Element löschen",
+    "alignleftButton": "Links ausrichten",
+    "aligncenterButton": "Zentrieren",
+    "alignrightButton": "Rechts ausrichten"
+  },
+  "messages": {
+    "copySuccess": "Bild in die Zwischenablage kopiert!",
+    "copyError": "Fehler beim Kopieren des Bildes.",
+    "downloadSuccess": "Bild heruntergeladen!",
+    "downloadError": "Fehler beim Herunterladen des Bildes.",
+    "mailtoBody": "Fügen Sie Ihr Bild hier ein. Strg + V (Windows) oder Command (⌘) + V (macOS)",
+    "loadingShare": "Bild wird geladen",
+    "loadingSaved": "Bilder werden geladen",
+    "savedNoImages": "Sie haben keine gespeicherten Bilder",
+    "savedImageTitle": "Klicken Sie, um dieses Bild zu teilen"
+  },
+  "nav": {
+    "create": "Erstellen",
+    "saved": "Gespeichert"
+  },
+  "pagination": {
+    "feedbackLabel": "Seite:",
+    "feedbackSeparator": "von",
+    "firstPageLabel": "Erste Seite",
+    "lastPageLabel": "Letzte Seite",
+    "prevPageLabel": "Vorherige Seite",
+    "nextPageLabel": "Nächste Seite"
+  }
+}

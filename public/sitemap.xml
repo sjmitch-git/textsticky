@@ -30,4 +30,24 @@
             https://stickyblob.vercel.app/hi
         </loc>
     </url>
+    <url>
+        <loc>
+            https://stickyblob.vercel.app/jp
+        </loc>
+    </url>
+    <url>
+        <loc>
+            https://stickyblob.vercel.app/ru
+        </loc>
+    </url>
+    <url>
+        <loc>
+            https://stickyblob.vercel.app/de
+        </loc>
+    </url>
+    <url>
+        <loc>
+            https://stickyblob.vercel.app/pt
+        </loc>
+    </url>
 </urlset>
