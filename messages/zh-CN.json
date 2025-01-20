@@ -27,7 +27,6 @@
     "MailtoButton": "发送",
     "UploadButton": "保存",
     "DeleteButton": "删除",
-    "feedbackLabel": "页面：",
     "alignleftButton": "左对齐",
     "aligncenterButton": "居中对齐",
     "alignrightButton": "右对齐"
@@ -46,5 +45,13 @@
   "nav": {
     "create": "创建",
     "saved": "已保存"
+  },
+  "pagination": {
+    "feedbackLabel": "页面：",
+    "feedbackSeparator": "的",
+    "firstPageLabel": "第一页",
+    "lastPageLabel": "最后一页",
+    "prevPageLabel": "上一页",
+    "nextPageLabel": "下一页"
   }
 }

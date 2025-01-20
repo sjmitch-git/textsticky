@@ -1,6 +1,6 @@
 "use client";
 
-import { useTranslations } from 'next-intl';
+import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { SavedImageProps } from "@/lib/types";
@@ -111,7 +111,7 @@ const SavedList = () => {
                     alt={`Saved image ${index + 1}`}
                     className="w-full h-full object-cover cursor-pointer"
                     onClick={() => handleClick(image.blobId)}
-                    title={t('messages.savedImageTitle')}
+                    title={t("messages.savedImageTitle")}
                   />
                   <figcaption className="absolute w-full bottom-0 flex p-1 justify-end">
                     <DeleteButton onClick={handleDelete} id={image.blobId} />
@@ -129,14 +129,19 @@ const SavedList = () => {
             range={range}
             feedback={true}
             page={page}
-            feedbackLabel={t('buttons.feedbackLabel')}
+            feedbackLabel={t("pagination.feedbackLabel")}
+            feedbackSeparator={t("pagination.feedbackSeparator")}
+            firstPageLabel={t("pagination.firstPageLabel")}
+            lastPageLabel={t("pagination.lastPageLabel")}
+            prevPageLabel={t("pagination.prevPageLabel")}
+            nextPageLabel={t("pagination.nextPageLabel")}
             onChange={(newpage) => setPage(newpage)}
           />
         </>
       ) : loading ? (
         <div className={`flex justify-center w-full`}>
           <Loading
-            caption={t('messages.loadingSaved')}
+            caption={t("messages.loadingSaved")}
             loadingColor="info"
             size="lg"
             layout="col"
@@ -144,11 +149,7 @@ const SavedList = () => {
         </div>
       ) : (
         <div className={`flex justify-center w-full`}>
-          <Alert
-            status="info"
-            message={t('messages.savedNoImages')}
-            className="w-full max-w-xl"
-          />
+          <Alert status="info" message={t("messages.savedNoImages")} className="w-full max-w-xl" />
         </div>
       )}
     </div>

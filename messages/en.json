@@ -27,7 +27,6 @@
     "MailtoButton": "Send",
     "UploadButton": "Save",
     "DeleteButton": "Delete Item",
-    "feedbackLabel": "Page:",
     "alignleftButton": "Align Left",
     "aligncenterButton": "Align Centre",
     "alignrightButton": "Align Right"
@@ -46,5 +45,13 @@
   "nav": {
     "create": "Create",
     "saved": "Saved"
+  },
+  "pagination": {
+    "feedbackLabel": "Page:",
+    "feedbackSeparator": "of",
+    "firstPageLabel": "First Page",
+    "lastPageLabel": "Last Page",
+    "prevPageLabel": "Previous Page",
+    "nextPageLabel": "Next Page"
   }
 }

@@ -1,15 +1,15 @@
-import type { Metadata } from 'next';
-import { MetaData, URLs } from '@/lib/constants';
+import type { Metadata } from "next";
+import { MetaData, URLs } from "@/lib/constants";
 
 export async function generateMetadata(locale: string): Promise<Metadata> {
   const messages = (await import(`../../messages/${locale}.json`)).default;
 
   return {
-    title: `${MetaData.defaultSitename} | ${messages.titles.home}`,
+    title: `${messages.titles.home} | ${MetaData.defaultSitename}`,
     description: messages.descriptions.home,
     keywords: MetaData.defaultKeywords,
-    generator: 'Next.js',
-    manifest: '/manifest.json',
+    generator: "Next.js",
+    manifest: "/manifest.json",
     authors: [{ name: MetaData.defaultAuthor, url: MetaData.defaultAuthorUrl }],
     metadataBase: new URL(URLs.base),
     alternates: {
@@ -35,8 +35,8 @@ export async function generateMetadata(locale: string): Promise<Metadata> {
       card: MetaData.defaultTwitterCard,
     },
     icons: [
-      { rel: 'apple-touch-icon', url: 'icons/apple-icon-120x120.png' },
-      { rel: 'icon', url: 'icons/android-icon-192x192.png' },
+      { rel: "apple-touch-icon", url: "icons/apple-icon-120x120.png" },
+      { rel: "icon", url: "icons/android-icon-192x192.png" },
     ],
   };
 }

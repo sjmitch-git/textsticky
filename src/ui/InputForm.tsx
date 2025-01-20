@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { useTranslations } from 'next-intl';
+import { useTranslations } from "next-intl";
 import { useFormContext } from "@/lib/contexts/FormContext";
 import { Colors, Inputs } from "@/lib/constants";
 import RadiosAspect from "@/ui/RadiosAspect";
@@ -11,7 +11,6 @@ import { TextArea, RangeInput } from "@/lib/fluid";
 import AlignButtons from "@/ui/AlignButtons";
 
 export default function InputForm() {
-
   const {
     text,
     setText,
@@ -29,7 +28,7 @@ export default function InputForm() {
     setStrokeColor,
   } = useFormContext();
 
-  const t = useTranslations('inputs');
+  const t = useTranslations("inputs");
 
   const { fontsize, strokewidth, compose } = Inputs;
 
@@ -66,28 +65,28 @@ export default function InputForm() {
       <div className="space-y-4 border border-neutral-300 p-4">
         <div className="relative">
           <div className="absolute right-0 top-0">
-          <AlignButtons />
-        </div>
-        <div>
-          <TextArea
-            label={t('compose')}
-            placeholder={t('composePlaceholder')}
-            value={text}
-            name="compose"
-            onChange={handleTextChange}
-            rows={compose.rows}
-            resize={true}
-            maxLength={compose.maxLength}
-            layout="col"
-            size="md"
-            textAreaStyles="border-2 border-neutral-300 focus:border-info"
-          />
-        </div>
+            <AlignButtons />
+          </div>
+          <div>
+            <TextArea
+              label={t("compose")}
+              placeholder={t("composePlaceholder")}
+              value={text}
+              name="compose"
+              onChange={handleTextChange}
+              rows={compose.rows}
+              resize={true}
+              maxLength={compose.maxLength}
+              layout="col"
+              size="md"
+              textAreaStyles="border-2 border-neutral-300 focus:border-info"
+            />
+          </div>
         </div>
         <div className="flex gap-6">
           <div>
             <ColorInput
-              label={t('textcolor')}
+              label={t("textcolor")}
               name="textcolor"
               value={foregroundColor}
               onChange={handleForegroundColorChange}
@@ -95,7 +94,7 @@ export default function InputForm() {
           </div>
           <div>
             <ColorInput
-              label={t('strokecolor')}
+              label={t("strokecolor")}
               name="strokecolor"
               value={strokeColor}
               onChange={handleStrokeColorChange}
@@ -103,7 +102,7 @@ export default function InputForm() {
           </div>
           <div>
             <ColorInput
-              label={t('backgroundcolor')}
+              label={t("backgroundcolor")}
               name="backgroundcolor"
               value={backgroundColor}
               onChange={handleBackgroundColorChange}
@@ -115,7 +114,8 @@ export default function InputForm() {
         </div>
         <div>
           <RangeInput
-            label={t('fontsize')}
+            label={t("fontsize")}
+            title={t("fontsize")}
             name="fontsize"
             min={fontsize.min}
             max={fontsize.max}
@@ -132,7 +132,8 @@ export default function InputForm() {
         </div>
         <div>
           <RangeInput
-            label={t('strokewidth')}
+            label={t("strokewidth")}
+            title={t("strokewidth")}
             name="strokewidth"
             min={strokewidth.min}
             max={strokewidth.max}

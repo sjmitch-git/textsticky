@@ -27,7 +27,6 @@
     "MailtoButton": "भेजें",
     "UploadButton": "सहेजें",
     "DeleteButton": "मिटाएं",
-    "feedbackLabel": "पृष्ठ:",
     "alignleftButton": "बाएं संरेखित करें",
     "aligncenterButton": "केंद्र में संरेखित करें",
     "alignrightButton": "दाएं संरेखित करें"
@@ -46,5 +45,13 @@
   "nav": {
     "create": "बनाएं",
     "saved": "सहेजा हुआ"
+  },
+  "pagination": {
+    "feedbackLabel": "पृष्ठ:",
+    "feedbackSeparator": "का",
+    "firstPageLabel": "प्रथम पृष्ठ",
+    "lastPageLabel": "अंतिम पृष्ठ",
+    "prevPageLabel": "पिछला पृष्ठ",
+    "nextPageLabel": "अगला पृष्ठ"
   }
 }

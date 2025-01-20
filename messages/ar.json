@@ -27,7 +27,6 @@
     "MailtoButton": "إرسال",
     "UploadButton": "حفظ",
     "DeleteButton": "حذف",
-    "feedbackLabel": "الصفحة:",
     "alignleftButton": "محاذاة إلى اليسار",
     "aligncenterButton": "محاذاة إلى المنتصف",
     "alignrightButton": "محاذاة إلى اليمين"
@@ -46,5 +45,13 @@
   "nav": {
     "create": "إنشاء",
     "saved": "محفوظ"
+  },
+  "pagination": {
+    "feedbackLabel": "صفحة:",
+    "feedbackSeparator": "من",
+    "firstPageLabel": "الصفحة الأولى",
+    "lastPageLabel": "الصفحة الأخيرة",
+    "prevPageLabel": "الصفحة السابقة",
+    "nextPageLabel": "الصفحة التالية"
   }
 }
