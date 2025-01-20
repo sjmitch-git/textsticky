@@ -35,8 +35,8 @@ export async function generateMetadata(locale: string): Promise<Metadata> {
       card: MetaData.defaultTwitterCard,
     },
     icons: [
-      { rel: "apple-touch-icon", url: "icons/apple-icon-120x120.png" },
-      { rel: "icon", url: "icons/android-icon-192x192.png" },
+      { rel: "apple-touch-icon", url: `${new URL(URLs.base)}icons/apple-icon-120x120.png` },
+      { rel: "icon", url: `${new URL(URLs.base)}icons/android-icon-192x192.png` },
     ],
   };
 }
