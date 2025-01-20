@@ -4,7 +4,7 @@ import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { SavedImageProps } from "@/lib/types";
-import DeleteButton from "@/ui/DeleteButton";
+import DeleteButton from "./DeleteButton";
 import { Pagination, Loading, Alert } from "@/lib/fluid";
 
 const SavedList = () => {

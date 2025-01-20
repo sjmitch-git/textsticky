@@ -1,9 +1,9 @@
 import { MetaData } from "@/lib/constants";
-import LanguageSwitcher from "@/ui/LanguageSwitcher";
+import LanguageSwitcher from "@/ui/structure/LanguageSwitcher";
 
 export default function Footer() {
   return (
-    <footer className="bg-neutral-200 p-4 mt-8" dir='ltr'>
+    <footer className="bg-neutral-200 p-4 mt-8" dir="ltr">
       <div className="container mx-auto text-center space-y-4">
         <LanguageSwitcher />
         <p className="text-sm" suppressHydrationWarning>

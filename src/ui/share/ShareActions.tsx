@@ -1,12 +1,12 @@
-import DownloadButton from "@/ui/DownloadButton";
-import EditButton from "@/ui/EditButton";
-import CopyButton from "@/ui/CopyButton";
-import MailtoButton from "@/ui/MailtoButton";
-import XShareButton from "@/ui/XShareButton";
-import LinkedInShareButton from "@/ui/LinkedinButton";
-import FacebookShareButton from "@/ui/FacebookButton";
-import SlackShareButton from '@/ui/SlackButton';
-import WhatsAppShareButton from '@/ui/WhatsappButton';
+import DownloadButton from "@/ui/share/DownloadButton";
+import EditButton from "@/ui/share/EditButton";
+import CopyButton from "@/ui/share/CopyButton";
+import MailtoButton from "@/ui/share/MailtoButton";
+import XShareButton from "@/ui/share/XShareButton";
+import LinkedInShareButton from "@/ui/share/LinkedinButton";
+import FacebookShareButton from "@/ui/share/FacebookButton";
+import SlackShareButton from "@/ui/share/SlackButton";
+import WhatsAppShareButton from "@/ui/share/WhatsappButton";
 
 import { ShareActionsProps } from "@/lib/types";
 

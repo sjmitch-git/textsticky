@@ -1,4 +1,4 @@
-import Nav from "@/ui/Nav";
+import Nav from "@/ui/structure/Nav";
 import { useTranslations } from "next-intl";
 
 export default function Header() {

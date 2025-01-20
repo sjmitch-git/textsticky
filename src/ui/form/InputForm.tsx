@@ -4,11 +4,11 @@ import React from "react";
 import { useTranslations } from "next-intl";
 import { useFormContext } from "@/lib/contexts/FormContext";
 import { Colors, Inputs } from "@/lib/constants";
-import RadiosAspect from "@/ui/RadiosAspect";
-import SelectFontFamily from "@/ui/SelectFontFamily";
-import ColorInput from "@/ui/ColorInput";
+import RadiosAspect from "@/ui/form/RadiosAspect";
+import SelectFontFamily from "@/ui/form/SelectFontFamily";
+import ColorInput from "@/ui/form/ColorInput";
 import { TextArea, RangeInput } from "@/lib/fluid";
-import AlignButtons from "@/ui/AlignButtons";
+import AlignButtons from "@/ui/form/AlignButtons";
 
 export default function InputForm() {
   const {

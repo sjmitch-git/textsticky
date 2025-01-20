@@ -2,10 +2,10 @@
 
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
-import { useTranslations } from 'next-intl';
+import { useTranslations } from "next-intl";
 import { Aspects } from "@/lib/types";
 import { useFormContext, defaultState } from "@/lib/contexts/FormContext";
-import ShareActions from "@/ui/ShareActions";
+import ShareActions from "@/ui/share/ShareActions";
 import { Loading, Alert } from "@/lib/fluid";
 
 const ShareContent = () => {
@@ -25,7 +25,7 @@ const ShareContent = () => {
     setAspect,
     setStrokeColor,
     setStrokeWidth,
-    setAlign
+    setAlign,
   } = useFormContext();
 
   const formState = {
@@ -107,10 +107,10 @@ const ShareContent = () => {
     setStrokeColor,
     setStrokeWidth,
     setText,
-    setAlign
+    setAlign,
   ]);
 
-  const t = useTranslations('inputs');
+  const t = useTranslations("inputs");
 
   return (
     <>
@@ -129,7 +129,7 @@ const ShareContent = () => {
                 className={`flex justify-center absolute top-0 left-0 w-full aspect-[${dimensions.width}/${dimensions.height}]`}
               >
                 <Loading
-                  caption={t('messages.loadingShare')}
+                  caption={t("messages.loadingShare")}
                   loadingColor="info"
                   layout="col"
                   size="lg"

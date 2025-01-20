@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import { useFormContext } from "@/lib/contexts/FormContext";
-import UploadButton from "@/ui/UploadButton";
+import UploadButton from "@/ui/canvas/UploadButton";
 import { URLs, MetaData } from "@/lib/constants";
 
 export default function PreviewCanvas() {

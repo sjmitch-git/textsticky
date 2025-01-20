@@ -1,17 +1,14 @@
-import { Heading } from "@/lib/fluid";
-import SavedList from "@/ui/SavedList";
+import Hero from "@/ui/structure/Hero";
+import SavedList from "@/ui/saved/SavedList";
 
-import { useTranslations } from 'next-intl';
+import { useTranslations } from "next-intl";
 
 export default function Saved() {
   const t = useTranslations();
 
   return (
     <article>
-      <div className="flex gap-8 flex-row items-center max-md:hidden">
-        <Heading className="opacity-50">{t('titles.saved')}</Heading>
-        <p className="mb-4 max-w-lg">{t('descriptions.saved')}</p>
-      </div>
+      <Hero title={t("titles.share")} description={t("descriptions.saved")} />
       <SavedList />
     </article>
   );
