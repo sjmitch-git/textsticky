@@ -11,6 +11,7 @@
   },
   "inputs": {
     "compose": "内容：",
+    "composeDefault": "嗨!",
     "composePlaceholder": "在此添加您的内容",
     "textcolor": "文字颜色",
     "strokecolor": "边框颜色",

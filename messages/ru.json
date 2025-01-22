@@ -11,6 +11,7 @@
   },
   "inputs": {
     "compose": "Написать:",
+    "composeDefault": "Привет!",
     "composePlaceholder": "Добавьте ваше сообщение здесь",
     "textcolor": "Текст",
     "strokecolor": "Обводка",

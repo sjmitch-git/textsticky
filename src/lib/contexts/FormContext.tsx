@@ -4,12 +4,24 @@ import React, { createContext, useContext, useState } from "react";
 
 import { FormState, FormContextProps } from "@/lib/types";
 
+const textTranslations: Record<string, string> = {
+  fr: "Salut !",
+  es: "¡Hola!",
+  ar: "مرحبًا!",
+  "zh-CN": "嗨!",
+  hi: "हाय!",
+  de: "Hi!",
+  pt: "Oi!",
+  jp: "やあ！",
+  ru: "Привет!"
+};
+
 export const defaultState: FormState = {
-  text: "Hello",
+  text: "Hello!",
   foregroundColor: "#374151",
   backgroundColor: "#d1d5db",
   dimensions: { width: 1080, height: 1080 },
-  fontSize: 100,
+  fontSize: 200,
   fontFamily: "Arial",
   aspect: "square",
   strokeWidth: 0,
@@ -19,8 +31,8 @@ export const defaultState: FormState = {
 
 const FormContext = createContext<FormContextProps | undefined>(undefined);
 
-export const FormProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [text, setText] = useState(defaultState.text);
+export const FormProvider: React.FC<{ locale: string, children: React.ReactNode }> = ({ locale, children }) => {
+  const [text, setText] = useState((textTranslations[locale] || defaultState.text));
   const [foregroundColor, setForegroundColor] = useState(defaultState.foregroundColor);
   const [backgroundColor, setBackgroundColor] = useState(defaultState.backgroundColor);
   const [dimensions, setDimensions] = useState(defaultState.dimensions);

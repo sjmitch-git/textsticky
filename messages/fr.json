@@ -11,6 +11,7 @@
   },
   "inputs": {
     "compose": "Message :",
+    "composeDefault": "Salut !",
     "composePlaceholder": "Ajoutez votre texte ici",
     "textcolor": "Couleur du texte",
     "strokecolor": "Couleur du contour",

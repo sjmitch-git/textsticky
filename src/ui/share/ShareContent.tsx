@@ -110,7 +110,7 @@ const ShareContent = () => {
     setAlign,
   ]);
 
-  const t = useTranslations("inputs");
+  const t = useTranslations();
 
   return (
     <>

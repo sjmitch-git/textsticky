@@ -34,7 +34,7 @@ export default async function RootLayout({ children, params }: Props) {
       <body className="flex flex-col min-h-screen">
         <NextIntlClientProvider messages={messages}>
           <Header />
-          <FormProvider>
+          <FormProvider locale={locale}>
             <main className="flex-grow container mx-auto max-w-4xl py-8 px-4 lg:px-0">
               {children}
             </main>

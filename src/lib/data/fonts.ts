@@ -1,6 +1,8 @@
 export const fonts: string[] = [
   "Arial",
   "Arial Black",
+  "Impact",
+  "Freshman",
   "Helvetica",
   "Times New Roman",
   "Courier New",
@@ -10,5 +12,4 @@ export const fonts: string[] = [
   "Garamond",
   "Comic Sans MS",
   "Trebuchet MS",
-  "Impact",
 ];

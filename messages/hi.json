@@ -11,6 +11,7 @@
   },
   "inputs": {
     "compose": "संदेश:",
+    "composeDefault": "हाय!",
     "composePlaceholder": "अपना संदेश यहां लिखें",
     "textcolor": "पाठ का रंग",
     "strokecolor": "रेखांकन का रंग",

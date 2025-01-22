@@ -11,6 +11,7 @@
   },
   "inputs": {
     "compose": "Mensaje:",
+    "composeDefault": "¡Hola!",
     "composePlaceholder": "Añade tu mensaje aquí",
     "textcolor": "Color del texto",
     "strokecolor": "Color del borde",

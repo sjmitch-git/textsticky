@@ -11,6 +11,7 @@
   },
   "inputs": {
     "compose": "Verfassen:",
+    "composeDefault": "Hi!",
     "composePlaceholder": "Fügen Sie hier Ihre Nachricht ein",
     "textcolor": "Textfarbe",
     "strokecolor": "Konturfarbe",

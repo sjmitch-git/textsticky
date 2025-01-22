@@ -11,6 +11,7 @@
   },
   "inputs": {
     "compose": "الرسالة:",
+    "composeDefault": "مرحبًا!",
     "composePlaceholder": "أضف رسالتك هنا",
     "textcolor": "لون النص",
     "strokecolor": "لون الحدود",

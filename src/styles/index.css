@@ -32,3 +32,10 @@ body {
   font-weight: normal;
   src: local("Impact Regular"), url("/fonts/impact.woff") format("woff");
 }
+
+@font-face {
+  font-family: "Freshman";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Freshman"), url("/fonts/freshman.ttf") format("truetype");
+}

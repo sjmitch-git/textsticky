@@ -11,6 +11,7 @@
   },
   "inputs": {
     "compose": "作成：",
+    "composeDefault": "やあ！",
     "composePlaceholder": "ここにメッセージを追加してください",
     "textcolor": "テキスト",
     "strokecolor": "ストローク",
