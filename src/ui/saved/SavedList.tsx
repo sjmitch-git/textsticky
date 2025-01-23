@@ -34,7 +34,7 @@ const SavedList = () => {
 
   useEffect(() => {
     const storedImages = JSON.parse(localStorage.getItem("savedImages") || "[]");
-    setSavedImages(storedImages.reverse());
+    setSavedImages(storedImages);
     setLoading(false);
   }, []);
 
@@ -139,7 +139,7 @@ const SavedList = () => {
           />
         </>
       ) : loading ? (
-        <div className={`flex justify-center w-full`}>
+        <div className={`flex justify-center items-center w-full aspect-[4/3]`}>
           <Loading
             caption={t("messages.loadingSaved")}
             loadingColor="info"

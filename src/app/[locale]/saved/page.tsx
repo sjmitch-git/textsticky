@@ -8,7 +8,7 @@ export default function Saved() {
 
   return (
     <article>
-      <Hero title={t("titles.share")} description={t("descriptions.saved")} />
+      <Hero title={t("titles.saved")} description={t("descriptions.saved")} />
       <SavedList />
     </article>
   );

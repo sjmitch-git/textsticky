@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useRef, useState, useEffect } from "react";
-import { useTranslations } from 'next-intl';
+import { useTranslations } from "next-intl";
 import { UploadButtonProps, SavedImageProps } from "@/lib/types";
 import { Button, Spinner } from "@/lib/fluid";
 import { FaUpload } from "react-icons/fa";
@@ -12,7 +12,7 @@ export default function UploadButton({ canvasRef, formState }: UploadButtonProps
   const [, setSavedImages] = useState<SavedImageProps[]>([]);
   const router = useRouter();
   const hasUploaded = useRef(false);
-  const t = useTranslations('buttons');
+  const t = useTranslations("buttons");
 
   useEffect(() => {
     const imagesFromStorage = JSON.parse(localStorage.getItem("savedImages") || "[]");
@@ -29,7 +29,7 @@ export default function UploadButton({ canvasRef, formState }: UploadButtonProps
       };
 
       setSavedImages((prevImages) => {
-        const updatedImages = [...prevImages, newImageEntry as SavedImageProps];
+        const updatedImages = [newImageEntry as SavedImageProps, ...prevImages];
         localStorage.setItem("savedImages", JSON.stringify(updatedImages));
         return updatedImages;
       });
@@ -92,7 +92,7 @@ export default function UploadButton({ canvasRef, formState }: UploadButtonProps
       className="focus:border-info focus-visible:outline-info disabled:hover:scale-100"
     >
       {uploading ? <Spinner width={24} /> : <FaUpload />}
-      <span>{t('UploadButton')}</span>
+      <span>{t("UploadButton")}</span>
     </Button>
   );
 }
