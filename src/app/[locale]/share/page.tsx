@@ -18,7 +18,7 @@ export async function generateMetadata({ searchParams }: Props): Promise<Metadat
   const imgUrl = `${process.env.BLOB_URL}uploads/image-${id}.png`;
 
   return {
-    title: text,
+    title: `${text} | ${MetaData.defaultSitename}`,
     description: "",
     openGraph: {
       title: text,
