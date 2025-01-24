@@ -101,7 +101,7 @@ export default function PreviewCanvas() {
   ]);
 
   return (
-    <div className="sticky md:static top-4">
+    <div className="sticky md:static top-0">
       <div
         className={`relative overflow-hidden w-full mx-auto aspect-[${dimensions.width}/${dimensions.height}]`}
       >
@@ -112,7 +112,7 @@ export default function PreviewCanvas() {
           height={dimensions.height}
         />
       </div>
-      <div className="flex justify-center sticky bottom-4 pt-4">
+      <div className="flex justify-center absolute md:sticky bottom-2 md:bottom-4 right-2 md:right-auto md:pt-4">
         {canvasLoaded && <UploadButton canvasRef={canvasRef} formState={formState} />}
       </div>
     </div>

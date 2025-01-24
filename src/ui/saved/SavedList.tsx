@@ -14,6 +14,7 @@ const SavedList = () => {
   const [range, setRange] = useState(1);
   const [savedImages, setSavedImages] = useState<SavedImageProps[]>([]);
   const [paginatedImages, setPaginatedImages] = useState<SavedImageProps[]>([]);
+  const [touchPosition, setTouchPosition] = useState<number>(null!);
   const t = useTranslations();
 
   useEffect(() => {
@@ -98,14 +99,45 @@ const SavedList = () => {
     }
   };
 
+  const setNext = () => {
+    if (Number(page) === savedImages.length) return;
+    setPage((Number(page) + 1).toString());
+  };
+
+  const setPrevious = () => {
+    if (Number(page) === 1) return;
+    setPage((Number(page) - 1).toString());
+  };
+
+  const handleTouchStart = (e: React.TouchEvent<HTMLElement>) => {
+    setTouchPosition(e.touches[0].clientX);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent<HTMLElement>) => {
+    if (touchPosition === null) return;
+    const diff = touchPosition - e.touches[0].clientX;
+
+    if (diff > 5) {
+      setNext();
+    } else if (diff < -5) {
+      setPrevious();
+    }
+
+    setTouchPosition(null!);
+  };
+
   return (
     <div>
       {savedImages.length > 0 ? (
         <>
-          <ul className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-8">
+          <ul
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-8"
+          >
             {paginatedImages.map((image, index) => (
               <li key={index} className="">
-                <figure className="relative w-full aspect-[4/3] overflow-hidden border border-gray-200 rounded-lg bg-gray-400">
+                <figure className="relative w-full aspect-[4/3] overflow-hidden border border-gray-200 bg-gray-400">
                   <img
                     src={image.url}
                     alt={`Saved image ${index + 1}`}

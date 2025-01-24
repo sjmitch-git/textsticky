@@ -62,7 +62,7 @@ export default function InputForm() {
 
   return (
     <form className="order-1 md:order-none">
-      <div className="space-y-4 border border-neutral-300 p-4">
+      <div className="space-y-4 md:border md:border-neutral-300 p-2 md:p-4">
         <div className="relative">
           <div className="absolute right-0 top-0">
             <AlignButtons />

@@ -92,7 +92,7 @@ export default function UploadButton({ canvasRef, formState }: UploadButtonProps
       className="focus:border-info focus-visible:outline-info disabled:hover:scale-100"
     >
       {uploading ? <Spinner width={24} /> : <FaUpload />}
-      <span>{t("UploadButton")}</span>
+      <span className="hidden md:inline-block">{t("UploadButton")}</span>
     </Button>
   );
 }
