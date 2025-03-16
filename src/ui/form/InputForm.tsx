@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import dynamic from "next/dynamic";
 import { useTranslations } from "next-intl";
 import { useFormContext } from "@/lib/contexts/FormContext";
 import { Colors, Inputs } from "@/lib/constants";
@@ -8,7 +9,8 @@ import RadiosAspect from "@/ui/form/RadiosAspect";
 import SelectFontFamily from "@/ui/form/SelectFontFamily";
 import ColorInput from "@/ui/form/ColorInput";
 import { TextArea, RangeInput } from "@/lib/fluid";
-import AlignButtons from "@/ui/form/AlignButtons";
+
+const AlignButtons = dynamic(() => import("./AlignButtons"), { ssr: false });
 
 export default function InputForm() {
   const {

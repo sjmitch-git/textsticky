@@ -14,7 +14,6 @@ type Props = {
 
 export async function generateMetadata({ searchParams }: Props): Promise<Metadata> {
   const { id, aspect, text } = await searchParams;
-
   const imgUrl = `${process.env.BLOB_URL}uploads/image-${id}.png`;
 
   return {

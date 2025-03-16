@@ -126,7 +126,7 @@ const ShareContent = () => {
           >
             {loading && (
               <div
-                className={`flex justify-center absolute top-0 left-0 w-full aspect-[${dimensions.width}/${dimensions.height}]`}
+                className={`flex justify-center absolute top-0 left-0 pt-8 w-full aspect-[${dimensions.width}/${dimensions.height}]`}
               >
                 <Loading
                   caption={t("messages.loadingShare")}
